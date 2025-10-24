@@ -272,6 +272,16 @@ main {
   grid-column: 1 / -1;
 }
 
+.contact__note {
+  margin-top: 1.5rem;
+  color: var(--muted);
+  max-width: 520px;
+}
+
+.contact__note a {
+  color: var(--accent);
+}
+
 .footer {
   display: flex;
   justify-content: space-between;
