@@ -237,6 +237,83 @@ main {
   border-top: 1px solid var(--border);
 }
 
+.publications {
+  display: grid;
+  gap: 1.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.publication-card {
+  position: relative;
+  padding: 2.25rem 2rem 2rem 2rem;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(56, 189, 248, 0.05));
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.35);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.publication-card::after {
+  content: '';
+  position: absolute;
+  inset: -40% 55% auto -25%;
+  height: 220px;
+  background: radial-gradient(circle at center, rgba(56, 189, 248, 0.35), transparent 70%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.publication-card:hover,
+.publication-card:focus-within {
+  transform: translateY(-8px);
+  border-color: var(--accent);
+  box-shadow: 0 30px 80px rgba(56, 189, 248, 0.2);
+}
+
+.publication-card__badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.75rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(15, 23, 42, 0.85);
+  background: var(--accent);
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.35);
+}
+
+.publication-card__body {
+  position: relative;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.publication-card__title {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.publication-card__meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.publication-card__summary {
+  margin: 0;
+  color: #cbd5f5;
+}
+
+.publication-card__link {
+  color: var(--accent);
+  font-weight: 600;
+  word-break: break-word;
+}
+
 .contact {
   display: grid;
   gap: 1.5rem;
@@ -270,6 +347,16 @@ main {
 
 .contact__field--full {
   grid-column: 1 / -1;
+}
+
+.contact__note {
+  margin-top: 1.5rem;
+  color: var(--muted);
+  max-width: 520px;
+}
+
+.contact__note a {
+  color: var(--accent);
 }
 
 .footer {
