@@ -24,8 +24,30 @@
         </ul>
       </nav>
       <div class="hero__content">
-        <p class="hero__kicker">Hola, I'm Roger Montserrat Jovellar</p>
-        <h1 class="hero__title">General health psychologist exploring immersive mental health research.</h1>
+        <div class="hero__identity">
+          <div class="hero__name-row">
+            <h1 class="hero__name">Roger Montserrat Jovellar</h1>
+            <div class="hero__stat-bubble" role="img" aria-label="h-index of 4">
+              <span class="hero__stat-value">4</span>
+              <span class="hero__stat-label">h-index</span>
+            </div>
+          </div>
+          <div
+            class="hero__metric-card"
+            role="img"
+            aria-label="Research interest score 50.4 out of 100"
+            style="--score: 50.4"
+          >
+            <div class="hero__metric-info">
+              <span class="hero__metric-label">Research interest score</span>
+              <span class="hero__metric-value">50.4</span>
+            </div>
+            <div class="hero__metric-track" aria-hidden="true">
+              <div class="hero__metric-fill"></div>
+            </div>
+          </div>
+        </div>
+        <p class="hero__title">General health psychologist exploring immersive mental health research.</p>
         <p class="hero__subtitle">
           Based in Barcelona, I bridge clinical practice with emerging
           technologies—especially virtual reality—to design evidence-based
@@ -140,48 +162,77 @@
           <article class="publication-card">
             <div class="publication-card__badge">2024</div>
             <div class="publication-card__body">
-              <h3 class="publication-card__title">The assessment of metacognition in psychosis: systematic review and future lines of research</h3>
-              <p class="publication-card__meta">Díaz-Cutraro, L., <strong>Montserrat, R.</strong>, et al. (submitted).</p>
-              <p class="publication-card__summary">Mapping current tools that assess metacognition in psychosis and outlining priorities for the next wave of clinical research.</p>
+              <button class="publication-card__toggle" type="button" aria-expanded="false">
+                <h3 class="publication-card__title">The assessment of metacognition in psychosis: systematic review and future lines of research</h3>
+                <p class="publication-card__meta">Díaz-Cutraro, L., <strong>Montserrat, R.</strong>, et al. (submitted).</p>
+              </button>
+              <div class="publication-card__details" hidden>
+                <p class="publication-card__summary">Mapping current tools that assess metacognition in psychosis and outlining priorities for the next wave of clinical research.</p>
+              </div>
             </div>
           </article>
           <article class="publication-card">
             <div class="publication-card__badge">2022</div>
             <div class="publication-card__body">
-              <h3 class="publication-card__title">Influence of Maternal and Paternal History of Mental Health in Clinical, Social Cognition and Metacognitive Variables in People with First-Episode Psychosis</h3>
-              <p class="publication-card__meta">Mendoza-García, S., <strong>Montserrat, R.</strong>, et al. <em>Journal of Personalized Medicine</em>, 12(10), 1732.</p>
-              <a class="publication-card__link" href="https://doi.org/10.3390/jpm12101732">https://doi.org/10.3390/jpm12101732</a>
+              <button class="publication-card__toggle" type="button" aria-expanded="false">
+                <h3 class="publication-card__title">Influence of Maternal and Paternal History of Mental Health in Clinical, Social Cognition and Metacognitive Variables in People with First-Episode Psychosis</h3>
+                <p class="publication-card__meta">Mendoza-García, S., <strong>Montserrat, R.</strong>, et al. <em>Journal of Personalized Medicine</em>, 12(10), 1732.</p>
+              </button>
+              <div class="publication-card__details" hidden>
+                <p class="publication-card__summary">Examines how parental mental health histories influence clinical profiles, social cognition, and metacognitive outcomes among people experiencing a first episode of psychosis.</p>
+                <a class="button button--ghost publication-card__cta" href="https://doi.org/10.3390/jpm12101732" target="_blank" rel="noopener">Check it out</a>
+              </div>
             </div>
           </article>
           <article class="publication-card">
             <div class="publication-card__badge">2021</div>
             <div class="publication-card__body">
-              <h3 class="publication-card__title">Exploring the Benefits of Proactive Participation among Adults and Older People by Writing Blogs</h3>
-              <p class="publication-card__meta">Celdrán, M., Serrat, R., Villar, F., Cannella, V., &amp; <strong>Montserrat, R.</strong> <em>Journal of Gerontological Social Work</em>, 65(3), 320-336.</p>
-              <a class="publication-card__link" href="https://doi.org/10.1080/01634372.2021.1965688">https://doi.org/10.1080/01634372.2021.1965688</a>
+              <button class="publication-card__toggle" type="button" aria-expanded="false">
+                <h3 class="publication-card__title">Exploring the Benefits of Proactive Participation among Adults and Older People by Writing Blogs</h3>
+                <p class="publication-card__meta">Celdrán, M., Serrat, R., Villar, F., Cannella, V., &amp; <strong>Montserrat, R.</strong> <em>Journal of Gerontological Social Work</em>, 65(3), 320-336.</p>
+              </button>
+              <div class="publication-card__details" hidden>
+                <p class="publication-card__summary">Highlights how older adults leverage blogging to build community, strengthen self-expression, and document their life stories through proactive digital participation.</p>
+                <a class="button button--ghost publication-card__cta" href="https://doi.org/10.1080/01634372.2021.1965688" target="_blank" rel="noopener">Check it out</a>
+              </div>
             </div>
           </article>
           <article class="publication-card">
             <div class="publication-card__badge">2020</div>
             <div class="publication-card__body">
-              <h3 class="publication-card__title">Cognitive insight in first-episode psychosis: changes during metacognitive training</h3>
-              <p class="publication-card__meta">Birulés, I., <strong>Montserrat, R.</strong>, et al. <em>Journal of Personalized Medicine</em>, 10(4), 253.</p>
-              <a class="publication-card__link" href="https://doi.org/10.3390/jpm10040253">https://doi.org/10.3390/jpm10040253</a>
+              <button class="publication-card__toggle" type="button" aria-expanded="false">
+                <h3 class="publication-card__title">Cognitive insight in first-episode psychosis: changes during metacognitive training</h3>
+                <p class="publication-card__meta">Birulés, I., <strong>Montserrat, R.</strong>, et al. <em>Journal of Personalized Medicine</em>, 10(4), 253.</p>
+              </button>
+              <div class="publication-card__details" hidden>
+                <p class="publication-card__summary">Tracks how metacognitive training influences self-reflection and cognitive insight in people navigating the early stages of psychosis.</p>
+                <a class="button button--ghost publication-card__cta" href="https://doi.org/10.3390/jpm10040253" target="_blank" rel="noopener">Check it out</a>
+              </div>
             </div>
           </article>
           <article class="publication-card">
             <div class="publication-card__badge">2020</div>
             <div class="publication-card__body">
-              <h3 class="publication-card__title">Predictors of changes in alcohol craving levels during a virtual reality cue exposure treatment among patients with alcohol use disorder</h3>
-              <p class="publication-card__meta">Hernández-Serrano, O., <strong>Montserrat, R.</strong>, et al. <em>Journal of Clinical Medicine</em>, 9(9), 3018.</p>
-              <a class="publication-card__link" href="https://doi.org/10.3390/jcm9093018">https://doi.org/10.3390/jcm9093018</a>
+              <button class="publication-card__toggle" type="button" aria-expanded="false">
+                <h3 class="publication-card__title">Predictors of changes in alcohol craving levels during a virtual reality cue exposure treatment among patients with alcohol use disorder</h3>
+                <p class="publication-card__meta">Hernández-Serrano, O., <strong>Montserrat, R.</strong>, et al. <em>Journal of Clinical Medicine</em>, 9(9), 3018.</p>
+              </button>
+              <div class="publication-card__details" hidden>
+                <p class="publication-card__summary">Identifies which baseline factors predict craving reductions during immersive virtual reality cue exposure for people recovering from alcohol use disorder.</p>
+                <a class="button button--ghost publication-card__cta" href="https://doi.org/10.3390/jcm9093018" target="_blank" rel="noopener">Check it out</a>
+              </div>
             </div>
           </article>
           <article class="publication-card">
             <div class="publication-card__badge">2019</div>
             <div class="publication-card__body">
-              <h3 class="publication-card__title">Motivations for blogging in later life: Older adults as Internet content producers</h3>
-              <p class="publication-card__meta">Celdrán, M., Serrat, R., Villar, F., Cannella, V., &amp; <strong>Montserrat, R.</strong> Poster presented at the British Society of Gerontology 48th Annual Conference, Liverpool, UK.</p>
+              <button class="publication-card__toggle" type="button" aria-expanded="false">
+                <h3 class="publication-card__title">Motivations for blogging in later life: Older adults as Internet content producers</h3>
+                <p class="publication-card__meta">Celdrán, M., Serrat, R., Villar, F., Cannella, V., &amp; <strong>Montserrat, R.</strong> Poster presented at the British Society of Gerontology 48th Annual Conference, Liverpool, UK.</p>
+              </button>
+              <div class="publication-card__details" hidden>
+                <p class="publication-card__summary">Shares qualitative insights into why older adults create online content—from preserving memories to staying socially connected—based on conference fieldwork.</p>
+              </div>
             </div>
           </article>
         </div>
@@ -208,8 +259,7 @@
           <button class="button" type="submit">Send Message</button>
         </form>
         <p class="contact__note">
-          Prefer email, a quick call, or meeting in Barcelona. Reach me at
-          <a href="tel:+34633361997">+34 633 361 997</a> or
+          Prefer email or meeting in Barcelona. Reach me at
           <a href="mailto:rmontsjo@gmail.com">rmontsjo@gmail.com</a>.
         </p>
       </section>
@@ -233,6 +283,35 @@
 
     <script>
       document.getElementById('year').textContent = new Date().getFullYear();
+
+      document.querySelectorAll('.publication-card__toggle').forEach((toggle) => {
+        const details = toggle.nextElementSibling;
+        if (!details) return;
+
+        const focusables = details.querySelectorAll('a, button');
+        const card = toggle.closest('.publication-card');
+        details.hidden = true;
+        focusables.forEach((element) => element.setAttribute('tabindex', '-1'));
+
+        toggle.addEventListener('click', () => {
+          const expanded = toggle.getAttribute('aria-expanded') === 'true';
+          const nextState = !expanded;
+
+          toggle.setAttribute('aria-expanded', nextState);
+          details.hidden = !nextState;
+          if (card) {
+            card.classList.toggle('publication-card--expanded', nextState);
+          }
+
+          focusables.forEach((element) => {
+            if (nextState) {
+              element.removeAttribute('tabindex');
+            } else {
+              element.setAttribute('tabindex', '-1');
+            }
+          });
+        });
+      });
     </script>
   </body>
 </html>
