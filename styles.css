@@ -67,14 +67,20 @@ a:focus {
 .hero__content {
   max-width: 650px;
   display: grid;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
-.hero__kicker {
-  font-size: 0.95rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--muted);
+.hero__name {
+  margin: 0;
+  font-size: clamp(3.75rem, 12vw, 6rem);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(120deg, #fff, rgba(56, 189, 248, 0.8));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 12px 30px rgba(8, 47, 73, 0.55);
 }
 
 .hero__name {
@@ -324,6 +330,23 @@ main {
 
 .publication-card__text {
   display: grid;
+  gap: 1.25rem;
+}
+
+.publication-card__toggle {
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
+}
+
+.publication-card__toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
   gap: 0.65rem;
 }
 
@@ -338,6 +361,12 @@ main {
   font-size: 0.95rem;
 }
 
+.publication-card__details {
+  display: grid;
+  gap: 1rem;
+}
+
+.publication-card__summary {
 .publication-card__icon {
   flex-shrink: 0;
   width: 1.75rem;
