@@ -70,6 +70,18 @@ a:focus {
   gap: 1.5rem;
 }
 
+.hero__identity {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.hero__name-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
 .hero__name {
   margin: 0;
   font-size: clamp(3.75rem, 12vw, 6rem);
@@ -83,6 +95,82 @@ a:focus {
   text-shadow: 0 12px 30px rgba(8, 47, 73, 0.55);
 }
 
+.hero__stat-bubble {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 999px;
+  background: linear-gradient(145deg, rgba(56, 189, 248, 0.95), rgba(96, 165, 250, 0.75));
+  color: #0b1120;
+  box-shadow: 0 25px 45px rgba(56, 189, 248, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  flex: 0 0 auto;
+}
+
+.hero__stat-value {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.hero__stat-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.hero__metric-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  border-radius: 26px;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.85), rgba(37, 99, 235, 0.4));
+  border: 1px solid rgba(56, 189, 248, 0.55);
+  box-shadow: 0 25px 50px rgba(8, 47, 73, 0.35);
+  width: fit-content;
+  --score: 0;
+}
+
+.hero__metric-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.hero__metric-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(226, 232, 240, 0.75);
+}
+
+.hero__metric-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.hero__metric-track {
+  position: relative;
+  width: 160px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.35);
+  overflow: hidden;
+}
+
+.hero__metric-fill {
+  position: absolute;
+  inset: 0;
+  width: calc(var(--score) * 1%);
+  background: linear-gradient(90deg, rgba(56, 189, 248, 0.9), rgba(56, 189, 248, 0.4));
+  border-radius: inherit;
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.5);
 .hero__name {
   margin: 0;
   font-size: clamp(3rem, 10vw, 5rem);
@@ -261,7 +349,7 @@ main {
 .publications {
   display: grid;
   gap: 1.75rem;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: 1fr;
 }
 
 .publication-card {
@@ -338,6 +426,16 @@ main {
   border: none;
   padding: 0;
   display: grid;
+  gap: 1.25rem;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+}
+
+.publication-card__toggle {
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: grid;
   gap: 0.75rem;
   text-align: left;
   color: inherit;
@@ -361,6 +459,27 @@ main {
   font-size: 0.95rem;
 }
 
+.publication-card--expanded .publication-card__body {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+}
+
+.publication-card__details {
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  background: linear-gradient(155deg, rgba(15, 23, 42, 0.92), rgba(30, 64, 175, 0.45));
+  box-shadow: 0 25px 60px rgba(8, 47, 73, 0.35);
+  align-content: start;
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.publication-card--expanded .publication-card__details {
+  opacity: 1;
+  transform: translateX(0);
 .publication-card__details {
   display: grid;
   gap: 1rem;
@@ -430,6 +549,36 @@ main {
   border-color: var(--accent);
 }
 
+@media (max-width: 640px) {
+  .hero__metric-card {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .hero__metric-track {
+    width: 100%;
+  }
+
+  .hero__stat-bubble {
+    width: 82px;
+    height: 82px;
+  }
+
+  .hero__stat-value {
+    font-size: 1.9rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .publication-card--expanded .publication-card__body {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    align-items: stretch;
+  }
+
+  .publication-card--expanded .publication-card__details {
+    margin-left: 1.75rem;
+  }
 .publication-card--expanded {
   transform: translateY(-8px) scale(1.02);
   border-color: var(--accent);

@@ -24,6 +24,29 @@
         </ul>
       </nav>
       <div class="hero__content">
+        <div class="hero__identity">
+          <div class="hero__name-row">
+            <h1 class="hero__name">Roger Montserrat Jovellar</h1>
+            <div class="hero__stat-bubble" role="img" aria-label="h-index of 4">
+              <span class="hero__stat-value">4</span>
+              <span class="hero__stat-label">h-index</span>
+            </div>
+          </div>
+          <div
+            class="hero__metric-card"
+            role="img"
+            aria-label="Research interest score 50.4 out of 100"
+            style="--score: 50.4"
+          >
+            <div class="hero__metric-info">
+              <span class="hero__metric-label">Research interest score</span>
+              <span class="hero__metric-value">50.4</span>
+            </div>
+            <div class="hero__metric-track" aria-hidden="true">
+              <div class="hero__metric-fill"></div>
+            </div>
+          </div>
+        </div>
         <p class="hero__kicker">Hola, I'm</p>
         <h1 class="hero__name">Roger Montserrat Jovellar</h1>
         <p class="hero__title">General health psychologist exploring immersive mental health research.</p>
@@ -296,8 +319,7 @@
           <button class="button" type="submit">Send Message</button>
         </form>
         <p class="contact__note">
-          Prefer email, a quick call, or meeting in Barcelona. Reach me at
-          <a href="tel:+34633361997">+34 633 361 997</a> or
+          Prefer email or meeting in Barcelona. Reach me at
           <a href="mailto:rmontsjo@gmail.com">rmontsjo@gmail.com</a>.
         </p>
       </section>
@@ -327,6 +349,7 @@
         if (!details) return;
 
         const focusables = details.querySelectorAll('a, button');
+        const card = toggle.closest('.publication-card');
         details.hidden = true;
         focusables.forEach((element) => element.setAttribute('tabindex', '-1'));
 
@@ -336,6 +359,12 @@
 
           toggle.setAttribute('aria-expanded', nextState);
           details.hidden = !nextState;
+          if (card) {
+            card.classList.toggle('publication-card--expanded', nextState);
+          }
+
+          focusables.forEach((element) => {
+            if (nextState) {
 
           focusables.forEach((element) => {
             if (nextState) {
