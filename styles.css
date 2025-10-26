@@ -397,6 +397,73 @@ main { display: grid; gap: 5rem; }
   }
 }
 
+/* ===== Expandable Poster ===== */
+.poster-expand {
+  margin-top: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(15, 23, 42, 0.6);
+  box-shadow: 0 10px 25px rgba(8, 47, 73, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* The clickable summary line */
+.poster-summary {
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-align: center;
+  background: rgba(56, 189, 248, 0.1);
+  transition: background 0.3s ease;
+}
+
+.poster-summary:hover {
+  background: rgba(56, 189, 248, 0.2);
+}
+
+/* Hide the default disclosure triangle */
+.poster-summary::-webkit-details-marker {
+  display: none;
+}
+
+/* The image when collapsed or expanded */
+.poster-card__full-image {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 0 0 16px 16px;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.4s ease;
+}
+
+/* When expanded */
+.poster-expand[open] .poster-card__full-image {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Responsive adjustments */
+@media screen and (min-width: 1024px) {
+  .poster-card__full-image {
+    max-width: 600px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .poster-card__full-image {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .poster-summary {
+    padding: 1rem;
+  }
+}
 
 
 /* =======================
