@@ -200,16 +200,16 @@ main {
 }
 
 /* ============================================
-   POSTERS SECTION
-   (Expandable thumbnail → full-size)
+   POSTERS SECTION — small preview → expand on click
 ============================================ */
+
 .posters {
   display: grid;
   gap: 2rem;
   grid-template-columns: 1fr;
+  justify-items: center;
 }
 
-/* Poster card container */
 .poster-card {
   background: var(--card-bg);
   border: 1px solid var(--border);
@@ -220,6 +220,8 @@ main {
   flex-direction: column;
   align-items: center;
   transition: transform 0.25s ease, border-color 0.25s ease;
+  max-width: 900px;
+  width: 100%;
 }
 
 .poster-card:hover {
@@ -227,7 +229,6 @@ main {
   border-color: var(--accent);
 }
 
-/* Poster text info */
 .poster-card__info {
   text-align: center;
   margin-bottom: 1rem;
@@ -245,61 +246,68 @@ main {
   font-size: 0.95rem;
 }
 
-/* Expandable poster element */
+/* Expandable image container */
 .poster-expand {
   border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
   transition: box-shadow 0.3s ease;
+  width: 100%;
 }
 
-.poster-expand:hover {
-  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.3);
-}
-
-/* Hide the default marker */
 .poster-expand summary::-webkit-details-marker {
   display: none;
 }
 
-/* --- Small preview always visible --- */
+/* SMALL preview (visible by default) */
 .poster-card__preview {
   display: block;
   width: 100%;
-  max-width: 500px;
+  max-width: 300px;        /* 👈 small thumbnail size */
   height: auto;
   margin: 0 auto;
   border-radius: 12px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .poster-expand:hover .poster-card__preview {
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 
-/* --- Full poster shown when expanded --- */
+/* FULL poster (hidden until expanded) */
 .poster-card__full {
   display: block;
   width: 100%;
-  max-width: 900px;
+  max-width: 750px;         /* 👈 moderate size when expanded */
   height: auto;
   margin: 1rem auto;
   border-radius: 12px;
   opacity: 0;
-  transform: scale(0.95);
+  transform: scale(0.9);
   transition: all 0.4s ease;
 }
 
-/* When the details element is open */
+/* When expanded */
 .poster-expand[open] .poster-card__full {
   opacity: 1;
   transform: scale(1);
 }
 
-/* Dim the small image when expanded */
+/* Dim small preview when expanded */
 .poster-expand[open] .poster-card__preview {
   opacity: 0.3;
-  transform: scale(0.98);
+  transform: scale(0.95);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 640px) {
+  .poster-card__preview {
+    max-width: 100%;
+  }
+
+  .poster-card__full {
+    max-width: 100%;
+  }
 }
 
 /* ============================================
