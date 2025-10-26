@@ -244,10 +244,12 @@ main{display:grid;gap:5rem}
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 3rem clamp(1.5rem, 5vw, 6rem);
+  padding: 1.5rem clamp(1.5rem, 5vw, 6rem);
   background: var(--bg-alt);
   border-radius: 32px;
   box-shadow: 0 20px 60px rgba(15, 23, 42, 0.35);
+  margin-top: -1rem;
+  margin-bottom: -1rem;
 }
 
 .metrics__container {
