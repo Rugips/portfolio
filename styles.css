@@ -200,70 +200,80 @@ main {
 }
 
 /* ============================================
-   POSTERS SECTION — small preview → expand on click
+   POSTERS SECTION — fixed version
 ============================================ */
 
-.posters {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: 1fr;
-  justify-items: center;
+#posters {
+  isolation: isolate;
+  position: relative;
+  z-index: 1;
 }
 
+.posters {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+/* Poster card */
 .poster-card {
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 24px;
   padding: 1.5rem;
   box-shadow: 0 20px 40px rgba(8, 47, 73, 0.3);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: transform 0.25s ease, border-color 0.25s ease;
   max-width: 900px;
   width: 100%;
+  text-align: center;
+  transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
 .poster-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
   border-color: var(--accent);
 }
 
 .poster-card__info {
-  text-align: center;
   margin-bottom: 1rem;
 }
 
 .poster-card__title {
-  margin: 0;
   font-size: 1.25rem;
   color: #fff;
+  margin: 0 0 0.25rem;
 }
 
 .poster-card__meta {
-  margin: 0;
   color: var(--muted);
   font-size: 0.95rem;
+  margin: 0;
 }
 
-/* Expandable image container */
+/* Expandable poster */
 .poster-expand {
   border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
   transition: box-shadow 0.3s ease;
   width: 100%;
+  display: block;
+}
+
+.poster-expand summary {
+  list-style: none;
+  outline: none;
 }
 
 .poster-expand summary::-webkit-details-marker {
   display: none;
 }
 
-/* SMALL preview (visible by default) */
+/* Small preview image */
 .poster-card__preview {
   display: block;
   width: 100%;
-  max-width: 300px;        /* 👈 small thumbnail size */
+  max-width: 320px;
   height: auto;
   margin: 0 auto;
   border-radius: 12px;
@@ -271,19 +281,19 @@ main {
 }
 
 .poster-expand:hover .poster-card__preview {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
-/* FULL poster (hidden until expanded) */
+/* Full image (hidden by default) */
 .poster-card__full {
   display: block;
   width: 100%;
-  max-width: 750px;         /* 👈 moderate size when expanded */
+  max-width: 700px;
   height: auto;
-  margin: 1rem auto;
+  margin: 1.25rem auto 0;
   border-radius: 12px;
   opacity: 0;
-  transform: scale(0.9);
+  transform: scale(0.92);
   transition: all 0.4s ease;
 }
 
@@ -293,13 +303,12 @@ main {
   transform: scale(1);
 }
 
-/* Dim small preview when expanded */
 .poster-expand[open] .poster-card__preview {
   opacity: 0.3;
-  transform: scale(0.95);
+  transform: scale(0.96);
 }
 
-/* Mobile responsive adjustments */
+/* Responsive */
 @media (max-width: 640px) {
   .poster-card__preview {
     max-width: 100%;
@@ -377,7 +386,6 @@ main {
 
 /* ============================================
    MOBILE OPTIMIZATION
-   (responsive adjustments)
 ============================================ */
 @media (max-width: 640px) {
   .nav__links {
@@ -408,14 +416,6 @@ main {
   main {
     gap: 3rem;
     padding: 0 1.25rem 4rem;
-  }
-
-  .poster-card__preview {
-    max-width: 100%;
-  }
-
-  .poster-card__full {
-    max-width: 100%;
   }
 
   .footer {
