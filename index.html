@@ -13,6 +13,7 @@
   <body>
     <header class="hero" id="top">
       <nav class="nav">
+        <a class="logo" href="#top">RMJ</a>
         <ul class="nav__links">
           <li><a href="#about">About</a></li>
           <li><a href="#projects">Projects</a></li>
@@ -22,8 +23,10 @@
       </nav>
 
       <div class="hero__content">
+        <!-- Put NAME and PHOTO in the same row -->
         <div class="hero__identity">
           <div class="hero__left">
+            <p class="hero__kicker">Hola, I'm</p>
             <h1 class="hero__name">Roger Montserrat Jovellar</h1>
 
             <div class="hero__name-row">
@@ -44,6 +47,7 @@
             </div>
           </div>
 
+          <!-- Your photo -->
           <img src="unnamed.jpg" alt="Roger Montserrat Jovellar" class="hero__photo" />
         </div>
 
@@ -52,6 +56,10 @@
           Based in Barcelona, I bridge clinical practice with emerging technologies—especially virtual reality—to design evidence-based
           interventions for people living with severe mental disorders.
         </p>
+        <div class="hero__actions">
+          <a class="button" href="#projects">Explore Highlights</a>
+          <a class="button button--ghost" href="mailto:rmontsjo@gmail.com">Let's Connect</a>
+        </div>
       </div>
     </header>
 
@@ -59,6 +67,7 @@
       <section class="section" id="about">
         <div class="section__header">
           <h2>About</h2>
+          <p>Get to know the psychologist behind the immersive mental health projects.</p>
         </div>
         <div class="about">
           <div class="about__bio">
@@ -81,7 +90,62 @@
         </div>
       </section>
 
-      <!-- ===== PUBLICATIONS ===== -->
+      <section class="section section--alt" id="projects">
+        <div class="section__header">
+          <h2>Projects</h2>
+        </div>
+        <div class="projects">
+          <article class="card">
+            <div class="card__content">
+              <h3 class="card__title">Immersive Mental Health Research</h3>
+              <p class="card__description">
+                Leading VR and AI-assisted studies at Event Lab to explore how immersive technologies can improve assessment and treatment
+                outcomes. Responsibilities span participant recruitment, EEG instrumentation, data management, and protocol design.
+              </p>
+              <ul class="card__tags">
+                <li>Virtual Reality</li>
+                <li>EEG</li>
+                <li>Clinical Research</li>
+              </ul>
+            </div>
+            <a class="card__link" href="mailto:rmontsjo@gmail.com">Request Details</a>
+          </article>
+
+          <article class="card">
+            <div class="card__content">
+              <h3 class="card__title">Psychosis Intervention Programs</h3>
+              <p class="card__description">
+                Supported multidisciplinary teams at Parc Sanitari Sant Joan de Déu to deliver metacognitive training, evaluate attachment styles
+                and cognitive biases, and co-facilitate rehabilitation sessions for adults with psychosis.
+              </p>
+              <ul class="card__tags">
+                <li>Metacognitive Training</li>
+                <li>Clinical Assessment</li>
+                <li>Data Analysis</li>
+              </ul>
+            </div>
+            <a class="card__link" href="https://doi.org/10.3390/jpm12101732" target="_blank" rel="noopener">Read Publication</a>
+          </article>
+
+          <article class="card">
+            <div class="card__content">
+              <h3 class="card__title">Digital Health Content Development</h3>
+              <p class="card__description">
+                Coordinated with technologists and clinicians to design an application for first-episode psychosis patients at Consultoria
+                Setting, aligning therapeutic content with clinical goals and patient needs.
+              </p>
+              <ul class="card__tags">
+                <li>Digital Therapeutics</li>
+                <li>Interdisciplinary Collaboration</li>
+                <li>Content Strategy</li>
+              </ul>
+            </div>
+            <a class="card__link" href="mailto:rmontsjo@gmail.com">Discuss Collaboration</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===== RESTORED PUBLICATIONS ===== -->
       <section class="section section--alt" id="publications">
         <div class="section__header">
           <h2>Publications</h2>
@@ -89,27 +153,13 @@
         </div>
 
         <div class="publications">
-          <!-- 2025 -->
-          <article class="publication-card">
-            <div class="publication-card__badge">2025</div>
-            <button class="publication-card__header" type="button" aria-expanded="false">
-              <div class="publication-card__text">
-                <h3 class="publication-card__title">The Elephant in the Room: People Respond with Greater Stress in Mixed Compared to Virtual Reality</h3>
-                <p class="publication-card__meta">Wiesing, M.,... <strong>Montserrat, R.</strong>, et al. (submitted).</p>
-              </div>
-              <span class="publication-card__icon" aria-hidden="true"></span>
-            </button>
-            <div class="publication-card__content" aria-hidden="true">
-              <p class="publication-card__abstract">Coming soon!</p>
-            </div>
-          </article>
-
+          <!-- 2024 -->
           <article class="publication-card">
             <div class="publication-card__badge">2024</div>
             <button class="publication-card__header" type="button" aria-expanded="false">
               <div class="publication-card__text">
                 <h3 class="publication-card__title">The assessment of metacognition in psychosis: systematic review and future lines of research</h3>
-                <p class="publication-card__meta">Díaz-Cutraro, L.,... <strong>Montserrat, R.</strong>, et al. (submitted).</p>
+                <p class="publication-card__meta">Díaz-Cutraro, L., <strong>Montserrat, R.</strong>, et al. (submitted).</p>
               </div>
               <span class="publication-card__icon" aria-hidden="true"></span>
             </button>
@@ -190,46 +240,22 @@
             </div>
           </article>
 
-        </div> <!-- ✅ CLOSE the .publications grid -->
-      </section> <!-- end of publications -->
-
-      <!-- ===== POSTERS ===== -->
-      <section class="section" id="posters">
-        <div class="section__header">
-          <h2>Posters</h2>
-          <p>Conference posters highlighting my ongoing work in virtual reality and mental health.</p>
-        </div>
-
-        <div class="posters">
-          <!-- Poster with expandable image -->
-          <article class="poster-card">
-            <div class="poster-card__info">
-              <h3 class="poster-card__title">Assessing Co-presence in VR Through EEG Hyperscanning</h3>
-              <p class="poster-card__meta">Presented at ECPA 2025 (Barcelona) and VR Summit (Bochum)</p>
-            </div>
-
-            <details class="poster-expand">
-              <summary>
-                <img
-                  src="PosterEEG.png"
-                  alt="Poster: Assessing Co-presence in VR Through EEG Hyperscanning"
-                  class="poster-card__preview"
-                />
-              </summary>
-              <img
-                src="PosterEEG.png"
-                alt="Poster: Assessing Co-presence in VR Through EEG Hyperscanning (full view)"
-                class="poster-card__full"
-              />
-            </details>
-          </article>
-
-          <!-- Poster without image -->
-          <article class="poster-card">
-            <div class="poster-card__info">
-              <h3 class="poster-card__title">Motivations for blogging in later life: Older adults as Internet content producers</h3>
-              <p class="poster-card__meta">Presented at the British Society of Gerontology 48th Annual Conference, Liverpool, UK.</p>
-              <a class="button button--ghost" href="https://doi.org/10.xxxx/yourposterlink" target="_blank" rel="noopener">Read Abstract</a>
+          <!-- 2019 -->
+          <article class="publication-card">
+            <div class="publication-card__badge">2019</div>
+            <button class="publication-card__header" type="button" aria-expanded="false">
+              <div class="publication-card__text">
+                <h3 class="publication-card__title">Motivations for blogging in later life: Older adults as Internet content producers</h3>
+                <p class="publication-card__meta">
+                  Celdrán, M., Serrat, R., Villar, F., Cannella, V., &amp; <strong>Montserrat, R.</strong> Poster presented at the British Society of Gerontology 48th Annual Conference, Liverpool, UK.
+                </p>
+              </div>
+              <span class="publication-card__icon" aria-hidden="true"></span>
+            </button>
+            <div class="publication-card__content" aria-hidden="true">
+              <p class="publication-card__abstract">
+                Shares qualitative insights into why older adults create online content—from preserving memories to staying socially connected—based on conference fieldwork.
+              </p>
             </div>
           </article>
         </div>
