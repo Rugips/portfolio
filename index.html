@@ -13,7 +13,7 @@
   <body>
     <header class="hero" id="top">
       <nav class="nav">
-          <ul class="nav__links">
+        <ul class="nav__links">
           <li><a href="#about">About</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#publications">Publications</a></li>
@@ -22,7 +22,6 @@
       </nav>
 
       <div class="hero__content">
-        <!-- Put NAME and PHOTO in the same row -->
         <div class="hero__identity">
           <div class="hero__left">
             <h1 class="hero__name">Roger Montserrat Jovellar</h1>
@@ -45,7 +44,6 @@
             </div>
           </div>
 
-          <!-- Your photo -->
           <img src="unnamed.jpg" alt="Roger Montserrat Jovellar" class="hero__photo" />
         </div>
 
@@ -83,7 +81,7 @@
         </div>
       </section>
 
-      <!-- ===== RESTORED PUBLICATIONS ===== -->
+      <!-- ===== PUBLICATIONS ===== -->
       <section class="section section--alt" id="publications">
         <div class="section__header">
           <h2>Publications</h2>
@@ -105,7 +103,7 @@
               <p class="publication-card__abstract">Coming soon!</p>
             </div>
           </article>
-          
+
           <article class="publication-card">
             <div class="publication-card__badge">2024</div>
             <button class="publication-card__header" type="button" aria-expanded="false">
@@ -191,50 +189,52 @@
               <a class="button button--ghost publication-card__cta" href="https://doi.org/10.3390/jcm9093018" target="_blank" rel="noopener">Check it out</a>
             </div>
           </article>
+
+        </div> <!-- ✅ CLOSE the .publications grid -->
       </section> <!-- end of publications -->
 
-<!--POSTERS-->
-<section class="section" id="posters">
-  <div class="section__header">
-    <h2>Posters</h2>
-    <p>Conference posters highlighting my ongoing work in virtual reality and mental health.</p>
-  </div>
+      <!-- ===== POSTERS ===== -->
+      <section class="section" id="posters">
+        <div class="section__header">
+          <h2>Posters</h2>
+          <p>Conference posters highlighting my ongoing work in virtual reality and mental health.</p>
+        </div>
 
-  <div class="posters">
-    <article class="poster-card">
-      <div class="poster-card__info">
-        <h3 class="poster-card__title">Assessing Co-presence in VR Through EEG Hyperscanning</h3>
-        <p class="poster-card__meta">Presented at ECPA 2025 (Barcelona) and VR Summit (Bochum)</p>
-      </div>
+        <div class="posters">
+          <!-- Poster with expandable image -->
+          <article class="poster-card">
+            <div class="poster-card__info">
+              <h3 class="poster-card__title">Assessing Co-presence in VR Through EEG Hyperscanning</h3>
+              <p class="poster-card__meta">Presented at ECPA 2025 (Barcelona) and VR Summit (Bochum)</p>
+            </div>
 
-      <!-- Expandable image -->
-      <details class="poster-expand">
-        <summary>
-          <img
-            src="PosterEEG.png"
-            alt="Poster: Assessing Co-presence in VR Through EEG Hyperscanning"
-            class="poster-card__preview"
-          />
-        </summary>
-        <img
-          src="PosterEEG.png"
-          alt="Poster: Assessing Co-presence in VR Through EEG Hyperscanning (full view)"
-          class="poster-card__full"
-        />
-      </details>
-    </article>
-  
-     <!-- Poster without image -->
-    <article class="poster-card">
-      <div class="poster-card__info">
-        <h3 class="poster-card__title">Motivations for blogging in later life: Older adults as Internet content producers</h3>
-        <p class="poster-card__meta">presented at the British Society of Gerontology 48th Annual Conference, Liverpool, UK.</p>
-        <a class="button button--ghost" href="https://doi.org/10.xxxx/yourposterlink" target="_blank" rel="noopener">Read Abstract</a>
-      </div>
-    </article>
-  </div>
-</section>
-      
+            <details class="poster-expand">
+              <summary>
+                <img
+                  src="PosterEEG.png"
+                  alt="Poster: Assessing Co-presence in VR Through EEG Hyperscanning"
+                  class="poster-card__preview"
+                />
+              </summary>
+              <img
+                src="PosterEEG.png"
+                alt="Poster: Assessing Co-presence in VR Through EEG Hyperscanning (full view)"
+                class="poster-card__full"
+              />
+            </details>
+          </article>
+
+          <!-- Poster without image -->
+          <article class="poster-card">
+            <div class="poster-card__info">
+              <h3 class="poster-card__title">Motivations for blogging in later life: Older adults as Internet content producers</h3>
+              <p class="poster-card__meta">Presented at the British Society of Gerontology 48th Annual Conference, Liverpool, UK.</p>
+              <a class="button button--ghost" href="https://doi.org/10.xxxx/yourposterlink" target="_blank" rel="noopener">Read Abstract</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <section class="section" id="contact">
         <div class="section__header">
           <h2>Contact</h2>
