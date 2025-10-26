@@ -107,23 +107,23 @@ main{display:grid;gap:5rem}
   </div>
 </header>
 
-<!-- === RESEARCH METRICS SECTION === -->
-<section class="section research-metrics" id="metrics">
+<!-- === RESEARCH METRICS (Bubble + Bar) === -->
+<section class="research-metrics" id="metrics">
   <div class="metrics__container">
-    <!-- H-INDEX bubble -->
-    <div class="metric-bubble" role="img" aria-label="h-index of 4">
-      <span class="metric-bubble__value">4</span>
-      <span class="metric-bubble__label">h-index</span>
+    <!-- h-index bubble -->
+    <div class="metric-bubble">
+      <span class="metric-value">4</span>
+      <span class="metric-label">h-index</span>
     </div>
 
-    <!-- Research interest card -->
-    <div class="metric-card" role="img" aria-label="Research interest score 50.4 out of 100">
-      <div class="metric-card__info">
-        <span class="metric-card__label">Research interest score</span>
-        <span class="metric-card__value">50.4</span>
+    <!-- research interest score bar -->
+    <div class="metric-card" style="--score: 50.4">
+      <div class="metric-info">
+        <span class="metric-label">Research interest score</span>
+        <span class="metric-value">50.4</span>
       </div>
-      <div class="metric-card__track">
-        <div class="metric-card__fill" style="--score: 50.4"></div>
+      <div class="metric-track">
+        <div class="metric-fill"></div>
       </div>
     </div>
   </div>
