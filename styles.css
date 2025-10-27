@@ -379,9 +379,9 @@ main{display:grid;gap:5rem}
 }
 
 #publications .publication-card__image {
-  flex: 0 0 200px;
-  max-width: 200px;
-  border-radius: 12px;
+  flex: 0 0 140px;       /* smaller fixed width */
+  max-width: 140px;      /* shrink image size */
+  border-radius: 10px;
   border: 1px solid rgba(56, 189, 248, 0.35);
   box-shadow: 0 5px 20px rgba(56, 189, 248, 0.15);
   transition: transform 0.25s ease;
