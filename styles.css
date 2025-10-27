@@ -196,6 +196,60 @@ main{display:grid;gap:5rem}
 .poster-card img{display:block;width:100%;max-width:700px;height:auto;margin:0 auto;border-radius:16px}
 
 /* ============================================
+   🌍 DISSEMINATION SECTION
+============================================ */
+.dissemination {
+  display: grid;
+  gap: 1.75rem;
+  grid-template-columns: 1fr;
+}
+
+.dissemination-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 40px rgba(8, 47, 73, 0.3);
+  display: grid;
+  gap: 1.25rem;
+  justify-items: center;
+  text-align: center;
+}
+
+.dissemination-card__info {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.dissemination-card__title {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #fff;
+}
+
+.dissemination-card__meta {
+  margin: 0;
+  color: var(--muted);
+}
+
+.dissemination-card__image {
+  width: 100%;
+  max-width: 700px; /* caps large images */
+  height: auto;
+  border-radius: 16px;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+  object-fit: cover; /* keeps proportion while cropping slightly if needed */
+}
+
+/* Mobile: keep layout neat */
+@media (max-width: 640px) {
+  .dissemination-card__image {
+    max-width: 100%;
+  }
+}
+
+/* ============================================
    CONTACT
 ============================================ */
 .contact{
