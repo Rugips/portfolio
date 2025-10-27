@@ -249,6 +249,27 @@ main{display:grid;gap:5rem}
   }
 }
 
+/* ==== Fix Dissemination image overflow (hard stop) ==== */
+#dissemination .dissemination-card {
+  overflow: hidden; /* prevents oversized image from pushing layout */
+}
+
+#dissemination .dissemination-card__image {
+  display: block;    /* removes inline-gap quirks */
+  width: 100%;       /* always fit the card’s width */
+  max-width: 100%;   /* never exceed container width */
+  height: auto;      /* keep aspect ratio */
+  /* keep your existing aesthetics */
+  border-radius: 16px;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+  object-fit: cover; /* optional; remove if you never want cropping */
+}
+
+/* Optional: if you still see a horizontal scrollbar on some setups */
+#dissemination { overflow-x: hidden; }
+
+
 /* ============================================
    CONTACT
 ============================================ */
