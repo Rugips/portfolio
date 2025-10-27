@@ -363,4 +363,45 @@ main{display:grid;gap:5rem}
   }
 }
 
+/* ============================================
+   🖼️ IMAGE INSIDE EXPANDABLE PUBLICATIONS
+   (Applies only to the #publications section)
+============================================ */
+#publications .publication-card__content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+#publications .publication-card__abstract {
+  flex: 1 1 250px;
+}
+
+#publications .publication-card__image {
+  flex: 0 0 200px;
+  max-width: 200px;
+  border-radius: 12px;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 5px 20px rgba(56, 189, 248, 0.15);
+  transition: transform 0.25s ease;
+}
+
+#publications .publication-card__image:hover {
+  transform: scale(1.03);
+}
+
+/* Responsive: stack image below text on mobile */
+@media (max-width: 640px) {
+  #publications .publication-card__content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #publications .publication-card__image {
+    max-width: 100%;
+  }
+}
+
 }
