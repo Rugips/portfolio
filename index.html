@@ -1,290 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Roger's Portfolio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-<style>
-/* === INLINE GOLDEN CSS (same as the “stable” version) === */
-:root{--bg:#0f172a;--bg-alt:#111b34;--text:#e2e8f0;--muted:#94a3b8;--accent:#38bdf8;--accent-soft:rgba(56,189,248,.15);--card-bg:rgba(15,23,42,.8);--border:rgba(148,163,184,.2);--font:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
-*{box-sizing:border-box}
-body{margin:0;font-family:var(--font);color:var(--text);background:radial-gradient(circle at top right,#1e3a8a,var(--bg));line-height:1.6}
-a{color:inherit;text-decoration:none}a:hover,a:focus{color:var(--accent)}
+  <!-- Basic metadata for browser and character set -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Roger's Portfolio</title>
 
-.hero,main,.footer{max-width:1200px;margin-inline:auto;padding-inline:clamp(1.5rem,5vw,6rem)}
+  <!-- Google Fonts setup -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
-.hero{min-height:60vh;padding:3rem clamp(1.5rem,5vw,6rem) 3rem;background:linear-gradient(160deg,rgba(56,189,248,.15),transparent 55%);display:flex;flex-direction:column}
-.nav{display:flex;justify-content:flex-end;align-items:center;margin-bottom:2rem}
-.nav__links{list-style:none;display:flex;gap:1.5rem;padding:0;margin:0}
+  <style>
+  /* === GLOBAL VARIABLES AND BASE STYLES === */
+  :root {
+    /* Define color palette and font variables */
+    --bg:#0f172a;
+    --bg-alt:#111b34;
+    --text:#e2e8f0;
+    --muted:#94a3b8;
+    --accent:#38bdf8;
+    --accent-soft:rgba(56,189,248,.15);
+    --card-bg:rgba(15,23,42,.8);
+    --border:rgba(148,163,184,.2);
+    --font:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  }
 
-.hero__content{max-width:960px;display:grid;gap:2rem}
-.hero__identity{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem}
-.hero__left{display:flex;flex-direction:column;gap:1rem;flex:1}
-.hero__photo{width:160px;height:160px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);box-shadow:0 10px 25px rgba(56,189,248,.3)}
-.hero__name{margin:0;font-size:clamp(2.6rem,7vw,4.2rem);line-height:1;font-weight:700;letter-spacing:-.02em;background:linear-gradient(120deg,#fff,rgba(56,189,248,.8));-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 12px 30px rgba(8,47,73,.55)}
-.hero__title{font-size:clamp(1.2rem,3.5vw,1.8rem);margin:0;color:#cbd5f5}
-.hero__subtitle{margin:0;color:var(--muted);font-size:1.02rem}
+  /* Reset layout and define general text look */
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: var(--font);
+    color: var(--text);
+    background: radial-gradient(circle at top right,#1e3a8a,var(--bg));
+    line-height: 1.6;
+  }
 
-main{display:grid;gap:5rem}
-.section{display:grid;gap:1.5rem}
-.section--alt{background:var(--bg-alt);padding:2.5rem clamp(1.5rem,5vw,6rem);border-radius:28px;box-shadow:0 40px 80px rgba(15,23,42,.35)}
+  /* Link styling */
+  a { color: inherit; text-decoration: none; }
+  a:hover, a:focus { color: var(--accent); }
 
-.publications{display:grid;gap:1.25rem}
-.publication-card{position:relative;padding:1.75rem 1.5rem 1.5rem;border-radius:24px;background:rgba(15,23,42,.7);border:1px solid var(--border);box-shadow:0 25px 60px rgba(8,47,73,.3);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
-.publication-card__badge{position:absolute;top:1rem;right:1.25rem;font-weight:700;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(15,23,42,.85);background:var(--accent);padding:.25rem .6rem;border-radius:999px}
-.publication-card__header{width:100%;background:transparent;border:none;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;padding:0;color:inherit;text-align:left;cursor:pointer}
-.publication-card__text{display:grid;gap:.75rem}
-.publication-card__title{margin:0;font-size:1.1rem}
-.publication-card__meta{margin:0;color:var(--muted);font-size:.92rem}
-.publication-card__icon{flex-shrink:0;width:1.5rem;height:1.5rem;border-radius:999px;border:1px solid rgba(56,189,248,.65);display:inline-flex;align-items:center;justify-content:center;position:relative}
-.publication-card__icon::before,.publication-card__icon::after{content:'';position:absolute;width:.7rem;height:2px;background:var(--accent)}
-.publication-card__icon::after{transform:rotate(90deg)}
-.publication-card__content{display:grid;gap:1rem;margin-top:0;max-height:0;overflow:hidden;opacity:0;visibility:hidden;pointer-events:none;transition:max-height .4s ease,opacity .25s ease,margin-top .25s ease}
-.publication-card__abstract{margin:0;color:#cbd5f5}
-.publication-card__cta{justify-self:start}
-.publication-card--expanded{transform:translateY(-4px);border-color:var(--accent)}
-.publication-card--expanded .publication-card__content{max-height:420px;opacity:1;margin-top:1rem;visibility:visible;pointer-events:auto}
-.publication-card--expanded .publication-card__icon{background:var(--accent);border-color:transparent}
-.publication-card--expanded .publication-card__icon::after{transform:scaleX(0)}
+  /* === LAYOUT CONTAINERS === */
+  .hero, main, .footer {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: clamp(1.5rem,5vw,6rem);
+  }
 
-.posters{display:grid;gap:1.5rem;grid-template-columns:1fr}
-.poster-card{background:var(--card-bg);border:1px solid var(--border);border-radius:24px;padding:1.25rem;box-shadow:0 20px 40px rgba(8,47,73,.3)}
-.poster-card__info{text-align:center;display:grid;gap:.4rem;margin-bottom:.75rem}
-.poster-card__title{margin:0;font-size:1.15rem;color:#fff}
-.poster-card__meta{margin:0;color:var(--muted);font-size:.95rem}
-.poster-card img{display:block;width:100%;max-width:700px;height:auto;margin:0 auto;border-radius:14px}
+  /* === HERO SECTION (HEADER AREA) === */
+  .hero {
+    min-height: 60vh;
+    padding: 3rem clamp(1.5rem,5vw,6rem) 3rem;
+    background: linear-gradient(160deg,rgba(56,189,248,.15),transparent 55%);
+    display: flex;
+    flex-direction: column;
+  }
 
-.contact{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-.contact__field{display:grid;gap:.45rem}
-.contact__field span{font-weight:600}
-.contact__field input,.contact__field textarea{padding:.7rem 1rem;border-radius:12px;border:1px solid var(--border);background:rgba(15,23,42,.65);color:var(--text);font-family:var(--font)}
-.contact__field input:focus,.contact__field textarea:focus{outline:2px solid var(--accent);outline-offset:2px}
-.contact__field--full{grid-column:1 / -1}
-.contact__note{margin-top:1rem;color:var(--muted);max-width:520px}
+  /* === NAVIGATION BAR === */
+  .nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  .nav__links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+  }
 
-.footer{display:flex;justify-content:space-between;align-items:center;padding:2.5rem clamp(1.5rem,5vw,6rem) 3rem;color:var(--muted);border-top:1px solid rgba(148,163,184,.1)}
-.footer svg{transition:transform .2s ease}
-.footer a:hover svg{transform:translateY(-2px);color:var(--accent)}
+  /* === HERO CONTENT === */
+  .hero__content {
+    max-width: 960px;
+    display: grid;
+    gap: 2rem;
+  }
+  .hero__identity {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .hero__left {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 1;
+  }
+  .hero__photo {
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+    box-shadow: 0 10px 25px rgba(56,189,248,.3);
+  }
+  .hero__name {
+    margin: 0;
+    font-size: clamp(2.6rem,7vw,4.2rem);
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    background: linear-gradient(120deg,#fff,rgba(56,189,248,.8));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 12px 30px rgba(8,47,73,.55);
+  }
+  .hero__title { font-size: clamp(1.2rem,3.5vw,1.8rem); margin: 0; color: #cbd5f5; }
+  .hero__subtitle { margin: 0; color: var(--muted); font-size: 1.02rem; }
 
-@media (max-width:640px){
-  .nav__links{display:none}
-  .hero{padding:2rem 1.25rem 2.5rem;text-align:center}
-  .hero__photo{width:120px;height:120px;margin:0 auto 1rem}
-  .hero__name{font-size:clamp(1.9rem,9.5vw,2.8rem)}
-  .hero__identity{flex-direction:column;align-items:center}
-  main{gap:3rem;padding:0 1.25rem 3rem}
-  .poster-card img{max-width:100%}
-  .footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.25rem}
-}
-</style>
+  /* === MAIN CONTENT STRUCTURE === */
+  main { display: grid; gap: 5rem; }
+
+  /* General section formatting */
+  .section { display: grid; gap: 1.5rem; }
+  .section--alt {
+    background: var(--bg-alt);
+    padding: 2.5rem clamp(1.5rem,5vw,6rem);
+    border-radius: 28px;
+    box-shadow: 0 40px 80px rgba(15,23,42,.35);
+  }
+
+  /* === PUBLICATIONS === */
+  .publications { display: grid; gap: 1.25rem; }
+
+  /* Publication card styling */
+  .publication-card {
+    position: relative;
+    padding: 1.75rem 1.5rem 1.5rem;
+    border-radius: 24px;
+    background: rgba(15,23,42,.7);
+    border: 1px solid var(--border);
+    box-shadow: 0 25px 60px rgba(8,47,73,.3);
+    transition: transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+  }
+
+  /* Badge showing year */
+  .publication-card__badge {
+    position: absolute;
+    top: 1rem; right: 1.25rem;
+    font-weight: 700; font-size: .85rem;
+    letter-spacing: .18em; text-transform: uppercase;
+    color: rgba(15,23,42,.85);
+    background: var(--accent);
+    padding: .25rem .6rem;
+    border-radius: 999px;
+  }
+
+  /* Expand/collapse button and icons */
+  .publication-card__header {
+    width: 100%;
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+  .publication-card__text { display: grid; gap: .75rem; }
+  .publication-card__title { margin: 0; font-size: 1.1rem; }
+  .publication-card__meta { margin: 0; color: var(--muted); font-size: .92rem; }
+
+  /* Plus icon styling */
+  .publication-card__icon {
+    flex-shrink: 0;
+    width: 1.5rem; height: 1.5rem;
+    border-radius: 999px;
+    border: 1px solid rgba(56,189,248,.65);
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    position: relative;
+  }
+  .publication-card__icon::before,
+  .publication-card__icon::after {
+    content: '';
+    position: absolute;
+    width: .7rem; height: 2px;
+    background: var(--accent);
+  }
+  .publication-card__icon::after { transform: rotate(90deg); }
+
+  /* Collapsible content section */
+  .publication-card__content {
+    display: grid;
+    gap: 1rem;
+    margin-top: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: max-height .4s ease, opacity .25s ease, margin-top .25s ease;
+  }
+
+  /* Expanded card animation */
+  .publication-card--expanded {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+  }
+  .publication-card--expanded .publication-card__content {
+    max-height: 420px;
+    opacity: 1;
+    margin-top: 1rem;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .publication-card--expanded .publication-card__icon {
+    background: var(--accent);
+    border-color: transparent;
+  }
+  .publication-card--expanded .publication-card__icon::after {
+    transform: scaleX(0); /* Turns plus into minus */
+  }
+
+  /* === POSTERS SECTION === */
+  .posters {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+  .poster-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 1.25rem;
+    box-shadow: 0 20px 40px rgba(8,47,73,.3);
+  }
+  .poster-card__info {
+    text-align: center;
+    display: grid;
+    gap: .4rem;
+    margin-bottom: .75rem;
+  }
+  .poster-card img {
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 14px;
+  }
+
+  /* === CONTACT FORM === */
+  .contact {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  }
+  .contact__field { display: grid; gap: .45rem; }
+  .contact__field span { font-weight: 600; }
+  .contact__field input,
+  .contact__field textarea {
+    padding: .7rem 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: rgba(15,23,42,.65);
+    color: var(--text);
+    font-family: var(--font);
+  }
+  .contact__field input:focus,
+  .contact__field textarea:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .contact__field--full { grid-column: 1 / -1; }
+  .contact__note { margin-top: 1rem; color: var(--muted); max-width: 520px; }
+
+  /* === FOOTER === */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.5rem clamp(1.5rem,5vw,6rem) 3rem;
+    color: var(--muted);
+    border-top: 1px solid rgba(148,163,184,.1);
+  }
+  .footer a:hover svg { transform: translateY(-2px); color: var(--accent); }
+
+  /* === MOBILE STYLES === */
+  @media (max-width:640px){
+    .nav__links{display:none}
+    .hero{padding:2rem 1.25rem 2.5rem;text-align:center}
+    .hero__photo{width:120px;height:120px;margin:0 auto 1rem}
+    .hero__name{font-size:clamp(1.9rem,9.5vw,2.8rem)}
+    .hero__identity{flex-direction:column;align-items:center}
+    main{gap:3rem;padding:0 1.25rem 3rem}
+    .poster-card img{max-width:100%}
+    .footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.25rem}
+  }
+  </style>
 </head>
 <body>
-<header class="hero" id="top">
-  <nav class="nav">
-    <ul class="nav__links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#publications">Publications</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <div class="hero__content">
-    <div class="hero__identity">
-      <div class="hero__left">
-        <h1 class="hero__name">Roger Montserrat Jovellar</h1>
-        <p class="hero__title">General Health Psychologist exploring immersive mental health research.</p>
-        <p class="hero__subtitle">
-          Based in Barcelona, I bridge clinical practice with emerging technologies—especially virtual reality—to design
-          evidence-based interventions for people living with severe mental disorders.
-        </p>
-      </div>
-      <img src="unnamed.jpg" alt="Roger Montserrat Jovellar" class="hero__photo" />
-    </div>
-  </div>
-</header>
-
-<main>
-  <section class="section" id="about">
-    <div class="section__header"><h2>About</h2></div>
-    <div class="about">
-      <div class="about__bio">
-        <p>Hi Laney!!!</p>
-        <p>More about roles and focus…</p>
-      </div>
-      <ul class="about__list">
-        <li><strong>Core focus:</strong> Clinical psychology, psychosis rehabilitation, VR research</li>
-        <li><strong>Currently learning:</strong> Bayesian statistics, Unity XR, advanced data methods</li>
-        <li><strong>Tools I rely on:</strong> EEG, SPSS, R, STATA, Ogama, Qualtrics, Unity</li>
+  <!-- === HEADER / HERO SECTION === -->
+  <header class="hero" id="top">
+    <!-- Navigation menu -->
+    <nav class="nav">
+      <ul class="nav__links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
-    </div>
-  </section>
+    </nav>
 
-  <section class="section section--alt" id="publications">
-    <div class="section__header">
-      <h2>Publications</h2>
-      <p>Peer-reviewed articles and conference work spanning psychosis, gerontology, and immersive therapies.</p>
-    </div>
-
-    <div class="publications">
-      <!-- 2025 -->
-      <article class="publication-card">
-        <div class="publication-card__badge">2025</div>
-        <button class="publication-card__header" type="button" aria-expanded="false">
-          <div class="publication-card__text">
-            <h3 class="publication-card__title">The Elephant in the Room: People Respond with Greater Stress in Mixed Compared to Virtual Reality</h3>
-            <p class="publication-card__meta">Wiesing, M., … <strong>Montserrat, R.</strong>, et al. (submitted).</p>
-          </div>
-          <span class="publication-card__icon" aria-hidden="true"></span>
-        </button>
-        <div class="publication-card__content" aria-hidden="true">
-          <p class="publication-card__abstract">Coming soon!</p>
-        </div>
-      </article>
-
-      <!-- 2024 -->
-      <article class="publication-card">
-        <div class="publication-card__badge">2024</div>
-        <button class="publication-card__header" type="button" aria-expanded="false">
-          <div class="publication-card__text">
-            <h3 class="publication-card__title">The assessment of metacognition in psychosis: systematic review and future lines of research</h3>
-            <p class="publication-card__meta">Díaz-Cutraro, L., … <strong>Montserrat, R.</strong>, et al. (submitted).</p>
-          </div>
-          <span class="publication-card__icon" aria-hidden="true"></span>
-        </button>
-        <div class="publication-card__content" aria-hidden="true">
-          <p class="publication-card__abstract">Mapping current tools and outlining next research priorities.</p>
-        </div>
-      </article>
-
-      <!-- 2022 -->
-      <article class="publication-card">
-        <div class="publication-card__badge">2022</div>
-        <button class="publication-card__header" type="button" aria-expanded="false">
-          <div class="publication-card__text">
-            <h3 class="publication-card__title">Influence of Maternal and Paternal History… First-Episode Psychosis</h3>
-            <p class="publication-card__meta">Mendoza-García, S., <strong>Montserrat, R.</strong>, et al. <em>JPM</em>, 12(10), 1732.</p>
-          </div>
-          <span class="publication-card__icon" aria-hidden="true"></span>
-        </button>
-        <div class="publication-card__content" aria-hidden="true">
-          <p class="publication-card__abstract">How parental histories shape clinical and metacognitive outcomes.</p>
-          <a class="button button--ghost publication-card__cta" href="https://doi.org/10.3390/jpm12101732" target="_blank" rel="noopener">Check it out</a>
-        </div>
-      </article>
-
-      <!-- 2021 -->
-      <article class="publication-card">
-        <div class="publication-card__badge">2021</div>
-        <button class="publication-card__header" type="button" aria-expanded="false">
-          <div class="publication-card__text">
-            <h3 class="publication-card__title">Exploring the Benefits of Proactive Participation… Writing Blogs</h3>
-            <p class="publication-card__meta">Celdrán, M., Serrat, R., Villar, F., Cannella, V., &amp; <strong>Montserrat, R.</strong> <em>JG Social Work</em>, 65(3), 320–336.</p>
-          </div>
-          <span class="publication-card__icon" aria-hidden="true"></span>
-        </button>
-        <div class="publication-card__content" aria-hidden="true">
-          <p class="publication-card__abstract">How older adults leverage blogging to build community and voice.</p>
-          <a class="button button--ghost publication-card__cta" href="https://doi.org/10.1080/01634372.2021.1965688" target="_blank" rel="noopener">Check it out</a>
-        </div>
-      </article>
-
-      <!-- 2020 JPM -->
-      <article class="publication-card">
-        <div class="publication-card__badge">2020</div>
-        <button class="publication-card__header" type="button" aria-expanded="false">
-          <div class="publication-card__text">
-            <h3 class="publication-card__title">Cognitive insight in first-episode psychosis: changes during metacognitive training</h3>
-            <p class="publication-card__meta">Birulés, I., <strong>Montserrat, R.</strong>, et al. <em>JPM</em>, 10(4), 253.</p>
-          </div>
-          <span class="publication-card__icon" aria-hidden="true"></span>
-        </button>
-        <div class="publication-card__content" aria-hidden="true">
-          <p class="publication-card__abstract">Effects of MCT on self-reflection and cognitive insight.</p>
-          <a class="button button--ghost publication-card__cta" href="https://doi.org/10.3390/jpm10040253" target="_blank" rel="noopener">Check it out</a>
-        </div>
-      </article>
-
-      <!-- 2020 JCM -->
-      <article class="publication-card">
-        <div class="publication-card__badge">2020</div>
-        <button class="publication-card__header" type="button" aria-expanded="false">
-          <div class="publication-card__text">
-            <h3 class="publication-card__title">Predictors of changes in alcohol craving… VR cue exposure treatment</h3>
-            <p class="publication-card__meta">Hernández-Serrano, O., <strong>Montserrat, R.</strong>, et al. <em>JCM</em>, 9(9), 3018.</p>
-          </div>
-          <span class="publication-card__icon" aria-hidden="true"></span>
-        </button>
-        <div class="publication-card__content" aria-hidden="true">
-          <p class="publication-card__abstract">Baseline factors predicting craving reductions with immersive VR.</p>
-          <a class="button button--ghost publication-card__cta" href="https://doi.org/10.3390/jcm9093018" target="_blank" rel="noopener">Check it out</a>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section class="section" id="posters">
-    <div class="section__header">
-      <h2>Posters</h2>
-      <p>Conference posters highlighting my ongoing work in virtual reality and mental health.</p>
-    </div>
-    <div class="posters">
-      <article class="poster-card">
-        <div class="poster-card__info">
-          <h3 class="poster-card__title">Assessing Co-presence in VR Through EEG Hyperscanning</h3>
-          <p class="poster-card__meta">Presented at ECPA 2025 (Barcelona) and VR Summit (Bochum)</p>
-        </div>
-        <img src="PosterEEG.png" alt="Poster: Assessing Co-presence in VR Through EEG Hyperscanning" />
-      </article>
-
-      <article class="poster-card">
-        <div class="poster-card__info">
-          <h3 class="poster-card__title">Motivations for blogging in later life: Older adults as Internet content producers</h3>
-          <p class="poster-card__meta">Presented at the British Society of Gerontology 48th Annual Conference, Liverpool, UK.</p>
-          <a class="button button--ghost" href="https://doi.org/10.xxxx/yourposterlink" target="_blank" rel="noopener">Read Abstract</a>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section class="section" id="contact">
-    <div class="section__header">
-      <h2>Contact</h2>
-      <p>Interested in collaborating on research or clinical innovation? Let's talk.</p>
-    </div>
-    <form class="contact" action="mailto:rmontsjo@gmail.com" method="post">
-      <label class="contact__field"><span>Name</span><input type="text" name="name" required /></label>
-      <label class="contact__field"><span>Email</span><input type="email" name="email" required /></label>
-      <label class="contact__field contact__field--full"><span>Message</span><textarea name="message" rows="5" required></textarea></label>
-      <button class="button" type="submit">Send Message</button>
-    </form>
-    <p class="contact__note">Prefer email or meeting in Barcelona. Reach me at <a href="mailto:rmontsjo@gmail.com">rmontsjo@gmail.com</a>.</p>
-  </section>
-</main>
-
-<footer class="footer">
-  <p>&copy; <span id="year"></span> Research psychologist exploring the intersection of psychology and technology from Barcelona.</p>
-  <a href="mailto:rmontsjo@gmail.com" aria-label="Email">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img"><title>Email</title><path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-  </a>
-</footer>
-
-<script>
-document.getElementById('year').textContent = new Date().getFullYear();
-document.querySelectorAll('.publication-card').forEach(card=>{
-  const header=card.querySelector('.publication-card__header');
-  const content=card.querySelector('.publication-card__content');
-  if(!header||!content) return;
-  header.addEventListener('click',()=>{
-    const expanded=header.getAttribute('aria-expanded')==='true';
-    header.setAttribute('aria-expanded', String(!expanded));
-    content.setAttribute('aria-hidden', String(expanded));
-    card.classList.toggle('publication-card--expanded', !expanded);
-  });
-});
-</script>
-</body>
-</html>
+    <!-- Main hero content -->
+    <div class="hero__content">
+      <div class="hero__identity">
+        <!-- Text info -->
+        <div class="hero__left">
+          <h1 class="hero__name">Roger Montserrat Jovellar</h1>
+          <p class="hero__title">General Health Psychologist exploring immersive mental health research.</p>
+          <p class="hero__subtit
