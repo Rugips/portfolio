@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 <style>
 /* === INLINE GOLDEN CSS (same as the “stable” version) === */
-:root{--bg:#1a1a1a;--bg-alt:#232323;--text:#e2e8f0;--muted:#b0b0b0;--accent:#38bdf8;--accent-soft:rgba(56,189,248,.15);--card-bg:rgba(40,40,40,.92);--border:rgba(148,163,184,.2);--font:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+:root{--bg:#1a1a1a;--bg-alt:#222222;--text:#e2e8f0;--muted:#b0b0b0;--accent:#38bdf8;--accent-soft:rgba(56,189,248,.15);--card-bg:rgba(26,26,26,.85);--border:rgba(148,163,184,.2);--font:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
 *{box-sizing:border-box}
 body{margin:0;font-family:var(--font);color:var(--text);background:radial-gradient(circle at top right,#2e2e2e,var(--bg));line-height:1.6}
 a{color:inherit;text-decoration:none}a:hover,a:focus{color:var(--accent)}
@@ -21,23 +21,23 @@ a{color:inherit;text-decoration:none}a:hover,a:focus{color:var(--accent)}
 .nav__links{list-style:none;display:flex;gap:1.5rem;padding:0;margin:0}
 
 .hero__content{max-width:960px;display:grid;gap:2rem}
-.hero__identity{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:2rem}
-.hero__left{display:flex;flex-direction:column;gap:1rem;flex:1;min-width:320px}
-.hero__photo{width:160px;height:160px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);box-shadow:0 10px 25px rgba(56,189,248,.3);align-self:flex-end;margin-top:1.5rem}
-.hero__name{margin:0;font-size:clamp(2.6rem,7vw,4.2rem);line-height:1;font-weight:700;letter-spacing:-.02em;background:linear-gradient(120deg,#bae6fd,#38bdf8,#0ea5e9);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 12px 30px rgba(8,47,73,.55);white-space:nowrap}
+.hero__identity{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem}
+.hero__left{display:flex;flex-direction:column;gap:1rem;flex:1}
+.hero__photo{width:160px;height:160px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);box-shadow:0 10px 25px rgba(56,189,248,.3)}
+.hero__name{margin:0;font-size:clamp(2.6rem,7vw,4.2rem);line-height:1;font-weight:700;letter-spacing:-.02em;background:linear-gradient(120deg,#bae6fd,#38bdf8,#0ea5e9);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 12px 30px rgba(8,47,73,.55)}
 .hero__title{font-size:clamp(1.2rem,3.5vw,1.8rem);margin:0;color:#cbd5f5}
 .hero__subtitle{margin:0;color:var(--muted);font-size:1.02rem}
 
-main{display:grid;gap:2.5rem}
+main{display:grid;gap:3.5rem}
 .section{display:grid;gap:1.5rem}
 .section--alt{background:var(--card-bg);padding:2.5rem clamp(1.5rem,5vw,6rem);border-radius:28px;box-shadow:0 40px 80px rgba(0,0,0,.45);transition:box-shadow .25s ease}
 .section--alt:hover,.section--alt:focus-within{box-shadow:0 40px 80px rgba(0,0,0,.45),0 0 36px rgba(56,189,248,.28)}
 
 .publications{display:grid;gap:1.25rem}
-.publication-card{position:relative;padding:3.5rem 1.75rem 1.5rem;border-radius:24px;background:var(--card-bg);border:1px solid var(--border);box-shadow:0 25px 60px rgba(0,0,0,.45);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.publication-card{position:relative;padding:1.75rem 1.5rem 1.5rem;border-radius:24px;background:var(--card-bg);border:1px solid var(--border);box-shadow:0 25px 60px rgba(0,0,0,.45);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
 .publication-card:hover,.publication-card:focus-within{box-shadow:0 25px 60px rgba(0,0,0,.45),0 0 40px rgba(56,189,248,.35)}
-.publication-card__badge{position:absolute;top:1rem;right:1.25rem;font-weight:700;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(15,23,42,.85);background:var(--accent);padding:.25rem .6rem;border-radius:999px;box-shadow:0 0 20px rgba(56,189,248,.4)}
-.publication-card__header{width:100%;background:transparent;border:none;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;padding:0 1rem 0 0;color:inherit;text-align:left;cursor:pointer;margin-top:.5rem}
+.publication-card__badge{position:absolute;top:1rem;right:1.25rem;font-weight:700;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(15,23,42,.85);background:var(--accent);padding:.25rem .6rem;border-radius:999px}
+.publication-card__header{width:100%;background:transparent;border:none;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;padding:0;color:inherit;text-align:left;cursor:pointer}
 .publication-card__text{display:grid;gap:.75rem}
 .publication-card__title{margin:0;font-size:1.1rem}
 .publication-card__meta{margin:0;color:var(--muted);font-size:.92rem}
@@ -52,18 +52,16 @@ main{display:grid;gap:2.5rem}
 .publication-card--expanded .publication-card__icon{background:var(--accent);border-color:transparent}
 .publication-card--expanded .publication-card__icon::after{transform:scaleX(0)}
 
-.posters{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));align-items:start}
-.poster-card{background:var(--card-bg);border:1px solid var(--border);border-radius:24px;padding:1.25rem;box-shadow:0 20px 40px rgba(0,0,0,.4);position:relative;overflow:hidden;transition:box-shadow .25s ease}
-.poster-card:hover,.poster-card:focus-within{box-shadow:0 20px 40px rgba(0,0,0,.45),0 0 38px rgba(56,189,248,.33)}
+.posters{display:grid;gap:1.5rem;grid-template-columns:1fr}
+.poster-card{background:var(--card-bg);border:1px solid var(--border);border-radius:24px;padding:1.25rem;box-shadow:0 20px 40px rgba(8,47,73,.3);position:relative;overflow:hidden}
 .poster-card--expanded{overflow:visible;z-index:1}
 .poster-card__info{text-align:center;display:grid;gap:.4rem;margin-bottom:.75rem}
 .poster-card__title{margin:0;font-size:1.15rem;color:#fff}
 .poster-card__meta{margin:0;color:var(--muted);font-size:.95rem}
 .poster-card__image-toggle{display:block;width:100%;background:transparent;border:none;padding:0;margin:0 auto;cursor:zoom-in;color:inherit}
 .poster-card__image-toggle:focus-visible{outline:3px solid var(--accent);outline-offset:6px;border-radius:18px}
-.poster-card__image{display:block;width:100%;max-width:100%;height:auto;margin:0 auto;border-radius:14px;transition:max-width .25s ease,box-shadow .25s ease,transform .25s ease}
-.poster-card--expanded{box-shadow:0 24px 60px rgba(0,0,0,.5),0 0 44px rgba(56,189,248,.38)}
-.poster-card--expanded .poster-card__image{max-width:min(90vw,900px);box-shadow:0 30px 80px rgba(0,0,0,.55);transform:scale(1.02)}
+.poster-card__image{display:block;width:100%;max-width:320px;height:auto;margin:0 auto;border-radius:14px;transition:max-width .25s ease,box-shadow .25s ease,transform .25s ease}
+.poster-card--expanded .poster-card__image{max-width:min(90vw,900px);box-shadow:0 30px 80px rgba(8,47,73,.45);transform:scale(1.02)}
 .poster-card--expanded .poster-card__image-toggle{cursor:zoom-out}
 
 .contact{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
@@ -84,6 +82,7 @@ main{display:grid;gap:2.5rem}
   .hero{padding:1.75rem 1.25rem 1.75rem;text-align:center}
   .hero__photo{width:120px;height:120px;margin:0 auto 1rem}
   .hero__name{font-size:clamp(1.9rem,9.5vw,2.8rem);white-space:normal}
+  .hero__metrics{margin-top:2rem}
   .hero__identity{flex-direction:column;align-items:center}
   main{gap:2.5rem;padding:0 1.25rem 3rem}
   .poster-card img{max-width:100%}
@@ -95,6 +94,7 @@ main{display:grid;gap:2.5rem}
 <header class="hero" id="top">
   <nav class="nav">
     <ul class="nav__links">
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#publications">Publications</a></li>
       <li><a href="#posters">Posters</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -112,6 +112,39 @@ field of clinical psychology, with a special focus on integrating modern technol
         </p>
       </div>
       <img src="images/profile.jpg" alt="Roger Montserrat Jovellar" class="hero__photo" />
+    </div>
+
+    <div class="hero__metrics">
+      <section class="hero__metric-card" aria-labelledby="phd-timeline-heading">
+        <h2 class="hero__metric-label" id="phd-timeline-heading">PhD timeline</h2>
+        <div class="timeline" aria-describedby="phd-timeline-caption">
+          <ol class="timeline__bar">
+            <li class="timeline__segment timeline__segment--completed"><span class="sr-only">Semester 1 complete</span></li>
+            <li class="timeline__segment timeline__segment--completed"><span class="sr-only">Semester 2 complete</span></li>
+            <li class="timeline__segment timeline__segment--active"><span class="sr-only">Currently in semester 3</span></li>
+            <li class="timeline__segment"><span class="sr-only">Semester 4 pending</span></li>
+            <li class="timeline__segment"><span class="sr-only">Semester 5 pending</span></li>
+            <li class="timeline__segment"><span class="sr-only">Semester 6 pending</span></li>
+            <li class="timeline__segment"><span class="sr-only">Semester 7 pending</span></li>
+            <li class="timeline__segment"><span class="sr-only">Semester 8 pending</span></li>
+          </ol>
+          <div class="timeline__legend"><span>Year 1</span><span>Current stage</span><span>Year 4</span></div>
+          <p class="timeline__caption" id="phd-timeline-caption">Tracking progress across 4 years — currently between year 1 and 1.5.</p>
+        </div>
+      </section>
+
+      <section class="hero__metric-card hero__metric-card--center" aria-labelledby="h-index-heading">
+        <h2 class="hero__metric-label" id="h-index-heading">H-index</h2>
+        <div class="hero__stat-circle" aria-hidden="true">4</div>
+        <p class="hero__stat-caption">Blue-sky impact across publications</p>
+      </section>
+
+      <section class="hero__metric-card hero__metric-card--center" aria-labelledby="interest-score-heading">
+        <h2 class="hero__metric-label" id="interest-score-heading">Research interest</h2>
+        <span class="hero__score">50.4</span>
+        <span class="hero__score-badge">curiosity index</span>
+        <p class="hero__stat-caption">A living pulse on immersive mental health</p>
+      </section>
     </div>
   </div>
 </header>
