@@ -41,7 +41,7 @@ a:hover, a:focus { color: var(--accent); }
 .hero {
   min-height: 20vh;
   padding: 3rem clamp(1.5rem, 5vw, 6rem) 2rem;
-  background: linear-gradient(160deg, #1a1a1a, #0d0d0d);
+  background: var(--bg);
   display: flex;
   flex-direction: column;
 }
