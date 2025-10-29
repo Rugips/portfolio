@@ -81,7 +81,8 @@ main{display:grid;gap:3.5rem}
   .nav__links{display:none}
   .hero{padding:2rem 1.25rem 2.5rem;text-align:center}
   .hero__photo{width:120px;height:120px;margin:0 auto 1rem}
-  .hero__name{font-size:clamp(1.9rem,9.5vw,2.8rem)}
+  .hero__name{font-size:clamp(1.9rem,9.5vw,2.8rem);white-space:normal}
+  .hero__metrics{margin-top:2rem}
   .hero__identity{flex-direction:column;align-items:center}
   main{gap:2.5rem;padding:0 1.25rem 3rem}
   .poster-card img{max-width:100%}
@@ -95,6 +96,7 @@ main{display:grid;gap:3.5rem}
     <ul class="nav__links">
       <li><a href="#projects">Projects</a></li>
       <li><a href="#publications">Publications</a></li>
+      <li><a href="#posters">Posters</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -110,6 +112,39 @@ field of clinical psychology, with a special focus on integrating modern technol
         </p>
       </div>
       <img src="images/profile.jpg" alt="Roger Montserrat Jovellar" class="hero__photo" />
+    </div>
+
+    <div class="hero__metrics">
+      <section class="hero__metric-card" aria-labelledby="phd-timeline-heading">
+        <h2 class="hero__metric-label" id="phd-timeline-heading">PhD timeline</h2>
+        <div class="timeline" aria-describedby="phd-timeline-caption">
+          <ol class="timeline__bar">
+            <li class="timeline__segment timeline__segment--completed"><span class="sr-only">Semester 1 complete</span></li>
+            <li class="timeline__segment timeline__segment--completed"><span class="sr-only">Semester 2 complete</span></li>
+            <li class="timeline__segment timeline__segment--active"><span class="sr-only">Currently in semester 3</span></li>
+            <li class="timeline__segment"><span class="sr-only">Semester 4 pending</span></li>
+            <li class="timeline__segment"><span class="sr-only">Semester 5 pending</span></li>
+            <li class="timeline__segment"><span class="sr-only">Semester 6 pending</span></li>
+            <li class="timeline__segment"><span class="sr-only">Semester 7 pending</span></li>
+            <li class="timeline__segment"><span class="sr-only">Semester 8 pending</span></li>
+          </ol>
+          <div class="timeline__legend"><span>Year 1</span><span>Current stage</span><span>Year 4</span></div>
+          <p class="timeline__caption" id="phd-timeline-caption">Tracking progress across 4 years — currently between year 1 and 1.5.</p>
+        </div>
+      </section>
+
+      <section class="hero__metric-card hero__metric-card--center" aria-labelledby="h-index-heading">
+        <h2 class="hero__metric-label" id="h-index-heading">H-index</h2>
+        <div class="hero__stat-circle" aria-hidden="true">4</div>
+        <p class="hero__stat-caption">Blue-sky impact across publications</p>
+      </section>
+
+      <section class="hero__metric-card hero__metric-card--center" aria-labelledby="interest-score-heading">
+        <h2 class="hero__metric-label" id="interest-score-heading">Research interest</h2>
+        <span class="hero__score">50.4</span>
+        <span class="hero__score-badge">curiosity index</span>
+        <p class="hero__stat-caption">A living pulse on immersive mental health</p>
+      </section>
     </div>
   </div>
 </header>
