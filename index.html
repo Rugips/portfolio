@@ -50,7 +50,7 @@ main{display:grid;gap:3.5rem}
 .publication-card--expanded .publication-card__icon{background:var(--accent);border-color:transparent}
 .publication-card--expanded .publication-card__icon::after{transform:scaleX(0)}
 
-.posters{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));align-items:start}
+.posters{display:grid;gap:1.5rem;grid-template-columns:1fr}
 .poster-card{background:var(--card-bg);border:1px solid var(--border);border-radius:24px;padding:1.25rem;box-shadow:0 20px 40px rgba(8,47,73,.3);position:relative;overflow:hidden}
 .poster-card--expanded{overflow:visible;z-index:1}
 .poster-card__info{text-align:center;display:grid;gap:.4rem;margin-bottom:.75rem}
@@ -58,7 +58,7 @@ main{display:grid;gap:3.5rem}
 .poster-card__meta{margin:0;color:var(--muted);font-size:.95rem}
 .poster-card__image-toggle{display:block;width:100%;background:transparent;border:none;padding:0;margin:0 auto;cursor:zoom-in;color:inherit}
 .poster-card__image-toggle:focus-visible{outline:3px solid var(--accent);outline-offset:6px;border-radius:18px}
-.poster-card__image{display:block;width:100%;max-width:100%;height:auto;margin:0 auto;border-radius:14px;transition:max-width .25s ease,box-shadow .25s ease,transform .25s ease}
+.poster-card__image{display:block;width:100%;max-width:320px;height:auto;margin:0 auto;border-radius:14px;transition:max-width .25s ease,box-shadow .25s ease,transform .25s ease}
 .poster-card--expanded .poster-card__image{max-width:min(90vw,900px);box-shadow:0 30px 80px rgba(8,47,73,.45);transform:scale(1.02)}
 .poster-card--expanded .poster-card__image-toggle{cursor:zoom-out}
 
