@@ -100,7 +100,7 @@ main{display:grid;gap:5rem}
 .section{display:grid;gap:3rem}
 .section--alt{
   background:var(--bg-alt);
-  padding:4rem clamp(1.5rem,5vw,6rem);
+  padding:2rem clamp(1.5rem,5vw,6rem);
   border-radius:32px;
   box-shadow:0 40px 80px rgba(15,23,42,.35);
 }
