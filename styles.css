@@ -37,7 +37,7 @@ a:hover,a:focus{color:var(--accent)}
    HERO & NAV
 ============================================ */
 .hero{
-  min-height:40vh;
+  min-height: 20vh;
   padding:3rem clamp(1.5rem,5vw,6rem) 2rem;
   background:linear-gradient(160deg,rgba(56,189,248,.15),transparent 55%);
   display:flex;
