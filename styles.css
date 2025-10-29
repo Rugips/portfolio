@@ -104,6 +104,11 @@ main{display:grid;gap:5rem}
   border-radius:32px;
   box-shadow:0 40px 80px rgba(15,23,42,.35);
 }
+/* Reduce space before About section only */
+.section.about {
+  margin-top: -2rem;
+}
+
 
 /* ============================================
    PUBLICATIONS
