@@ -166,7 +166,7 @@ main { display: grid; gap: 5rem; }
   .nav__links { display: none; }
   .hero { padding: 2rem 1.25rem 4rem; text-align: center; }
   .hero__photo { width: 120px; height: 120px; margin: 0 auto 1rem; }
-  .hero__name { font-size: clamp(2rem,10vw,3rem); line-height: 1.1; }
+  .hero__name { font-size: clamp(5rem,5vw,5rem); line-height: 1.1; }
   .hero__identity { flex-direction: column; align-items: center; }
   main { gap: 3rem; padding: 0 1.25rem 4rem; }
   .footer {
