@@ -51,11 +51,16 @@ main{display:grid;gap:3.5rem}
 .publication-card--expanded .publication-card__icon::after{transform:scaleX(0)}
 
 .posters{display:grid;gap:1.5rem;grid-template-columns:1fr}
-.poster-card{background:var(--card-bg);border:1px solid var(--border);border-radius:24px;padding:1.25rem;box-shadow:0 20px 40px rgba(8,47,73,.3)}
+.poster-card{background:var(--card-bg);border:1px solid var(--border);border-radius:24px;padding:1.25rem;box-shadow:0 20px 40px rgba(8,47,73,.3);position:relative;overflow:hidden}
+.poster-card--expanded{overflow:visible;z-index:1}
 .poster-card__info{text-align:center;display:grid;gap:.4rem;margin-bottom:.75rem}
 .poster-card__title{margin:0;font-size:1.15rem;color:#fff}
 .poster-card__meta{margin:0;color:var(--muted);font-size:.95rem}
-.poster-card img{display:block;width:100%;max-width:700px;height:auto;margin:0 auto;border-radius:14px}
+.poster-card__image-toggle{display:block;width:100%;background:transparent;border:none;padding:0;margin:0 auto;cursor:zoom-in;color:inherit}
+.poster-card__image-toggle:focus-visible{outline:3px solid var(--accent);outline-offset:6px;border-radius:18px}
+.poster-card__image{display:block;width:100%;max-width:320px;height:auto;margin:0 auto;border-radius:14px;transition:max-width .25s ease,box-shadow .25s ease,transform .25s ease}
+.poster-card--expanded .poster-card__image{max-width:min(90vw,900px);box-shadow:0 30px 80px rgba(8,47,73,.45);transform:scale(1.02)}
+.poster-card--expanded .poster-card__image-toggle{cursor:zoom-out}
 
 .contact{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
 .contact__field{display:grid;gap:.45rem}
@@ -250,7 +255,9 @@ field of clinical psychology, with a special focus on integrating modern technol
           <h3 class="poster-card__title">Assessing Co-presence in VR Through EEG Hyperscanning</h3>
           <p class="poster-card__meta">Presented at ECPA 2025 (Barcelona) and VR Summit 2025 (Bochum)</p>
         </div>
-        <img src="images/Poster_EEG.png" alt="Poster: Assessing Co-presence in VR Through EEG Hyperscanning" />
+        <button class="poster-card__image-toggle" type="button" aria-label="Expand poster preview" aria-expanded="false">
+          <img class="poster-card__image" src="images/Poster_EEG.png" alt="Poster: Assessing Co-presence in VR Through EEG Hyperscanning" />
+        </button>
       </article>
 
       <article class="poster-card">
@@ -298,6 +305,29 @@ document.querySelectorAll('.publication-card').forEach(card=>{
     content.setAttribute('aria-hidden', String(expanded));
     card.classList.toggle('publication-card--expanded', !expanded);
   });
+});
+
+const posterToggles=document.querySelectorAll('.poster-card__image-toggle');
+posterToggles.forEach(toggle=>{
+  toggle.addEventListener('click',()=>{
+    const card=toggle.closest('.poster-card');
+    if(!card) return;
+    const expanded=card.classList.toggle('poster-card--expanded');
+    toggle.setAttribute('aria-expanded', String(expanded));
+    toggle.setAttribute('aria-label', expanded?'Collapse poster preview':'Expand poster preview');
+  });
+});
+
+document.addEventListener('keydown',event=>{
+  if(event.key!=='Escape') return;
+  const expandedCard=document.querySelector('.poster-card--expanded');
+  if(!expandedCard) return;
+  const toggle=expandedCard.querySelector('.poster-card__image-toggle');
+  expandedCard.classList.remove('poster-card--expanded');
+  if(!toggle) return;
+  toggle.setAttribute('aria-expanded','false');
+  toggle.setAttribute('aria-label','Expand poster preview');
+  toggle.focus();
 });
 </script>
 </body>
