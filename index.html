@@ -9,9 +9,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 <style>
 /* === INLINE GOLDEN CSS (same as the “stable” version) === */
-:root{--bg:#0f172a;--bg-alt:#111b34;--text:#e2e8f0;--muted:#94a3b8;--accent:#38bdf8;--accent-soft:rgba(56,189,248,.15);--card-bg:rgba(15,23,42,.8);--border:rgba(148,163,184,.2);--font:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+:root{--bg:#1a1a1a;--bg-alt:#232323;--text:#e2e8f0;--muted:#b0b0b0;--accent:#38bdf8;--accent-soft:rgba(56,189,248,.15);--card-bg:rgba(40,40,40,.92);--border:rgba(148,163,184,.2);--font:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
 *{box-sizing:border-box}
-body{margin:0;font-family:var(--font);color:var(--text);background:radial-gradient(circle at top right,#1e3a8a,var(--bg));line-height:1.6}
+body{margin:0;font-family:var(--font);color:var(--text);background:radial-gradient(circle at top right,#2e2e2e,var(--bg));line-height:1.6}
 a{color:inherit;text-decoration:none}a:hover,a:focus{color:var(--accent)}
 
 .hero,main,.footer{max-width:1200px;margin-inline:auto;padding-inline:clamp(1.5rem,5vw,6rem)}
@@ -24,16 +24,18 @@ a{color:inherit;text-decoration:none}a:hover,a:focus{color:var(--accent)}
 .hero__identity{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem}
 .hero__left{display:flex;flex-direction:column;gap:1rem;flex:1}
 .hero__photo{width:160px;height:160px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);box-shadow:0 10px 25px rgba(56,189,248,.3)}
-.hero__name{margin:0;font-size:clamp(2.6rem,7vw,4.2rem);line-height:1;font-weight:700;letter-spacing:-.02em;background:linear-gradient(120deg,#fff,rgba(56,189,248,.8));-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 12px 30px rgba(8,47,73,.55)}
+.hero__name{margin:0;font-size:clamp(2.6rem,7vw,4.2rem);line-height:1;font-weight:700;letter-spacing:-.02em;background:linear-gradient(120deg,#bae6fd,#38bdf8,#0ea5e9);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 12px 30px rgba(8,47,73,.55)}
 .hero__title{font-size:clamp(1.2rem,3.5vw,1.8rem);margin:0;color:#cbd5f5}
 .hero__subtitle{margin:0;color:var(--muted);font-size:1.02rem}
 
-main{display:grid;gap:5rem}
+main{display:grid;gap:3.5rem}
 .section{display:grid;gap:1.5rem}
-.section--alt{background:var(--bg-alt);padding:2.5rem clamp(1.5rem,5vw,6rem);border-radius:28px;box-shadow:0 40px 80px rgba(15,23,42,.35)}
+.section--alt{background:var(--card-bg);padding:2.5rem clamp(1.5rem,5vw,6rem);border-radius:28px;box-shadow:0 40px 80px rgba(0,0,0,.45);transition:box-shadow .25s ease}
+.section--alt:hover,.section--alt:focus-within{box-shadow:0 40px 80px rgba(0,0,0,.45),0 0 36px rgba(56,189,248,.28)}
 
 .publications{display:grid;gap:1.25rem}
-.publication-card{position:relative;padding:1.75rem 1.5rem 1.5rem;border-radius:24px;background:rgba(15,23,42,.7);border:1px solid var(--border);box-shadow:0 25px 60px rgba(8,47,73,.3);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.publication-card{position:relative;padding:1.75rem 1.5rem 1.5rem;border-radius:24px;background:var(--card-bg);border:1px solid var(--border);box-shadow:0 25px 60px rgba(0,0,0,.45);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.publication-card:hover,.publication-card:focus-within{box-shadow:0 25px 60px rgba(0,0,0,.45),0 0 40px rgba(56,189,248,.35)}
 .publication-card__badge{position:absolute;top:1rem;right:1.25rem;font-weight:700;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(15,23,42,.85);background:var(--accent);padding:.25rem .6rem;border-radius:999px}
 .publication-card__header{width:100%;background:transparent;border:none;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;padding:0;color:inherit;text-align:left;cursor:pointer}
 .publication-card__text{display:grid;gap:.75rem}
@@ -45,23 +47,31 @@ main{display:grid;gap:5rem}
 .publication-card__content{display:grid;gap:1rem;margin-top:0;max-height:0;overflow:hidden;opacity:0;visibility:hidden;pointer-events:none;transition:max-height .4s ease,opacity .25s ease,margin-top .25s ease}
 .publication-card__abstract{margin:0;color:#cbd5f5}
 .publication-card__cta{justify-self:start}
-.publication-card--expanded{transform:translateY(-4px);border-color:var(--accent)}
+.publication-card--expanded{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 25px 70px rgba(0,0,0,.5),0 0 48px rgba(56,189,248,.4)}
 .publication-card--expanded .publication-card__content{max-height:420px;opacity:1;margin-top:1rem;visibility:visible;pointer-events:auto}
 .publication-card--expanded .publication-card__icon{background:var(--accent);border-color:transparent}
 .publication-card--expanded .publication-card__icon::after{transform:scaleX(0)}
 
-.posters{display:grid;gap:1.5rem;grid-template-columns:1fr}
-.poster-card{background:var(--card-bg);border:1px solid var(--border);border-radius:24px;padding:1.25rem;box-shadow:0 20px 40px rgba(8,47,73,.3)}
+.posters{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));align-items:start}
+.poster-card{background:var(--card-bg);border:1px solid var(--border);border-radius:24px;padding:1.25rem;box-shadow:0 20px 40px rgba(0,0,0,.4);position:relative;overflow:hidden;transition:box-shadow .25s ease}
+.poster-card:hover,.poster-card:focus-within{box-shadow:0 20px 40px rgba(0,0,0,.45),0 0 38px rgba(56,189,248,.33)}
+.poster-card--expanded{overflow:visible;z-index:1}
 .poster-card__info{text-align:center;display:grid;gap:.4rem;margin-bottom:.75rem}
 .poster-card__title{margin:0;font-size:1.15rem;color:#fff}
 .poster-card__meta{margin:0;color:var(--muted);font-size:.95rem}
-.poster-card img{display:block;width:100%;max-width:700px;height:auto;margin:0 auto;border-radius:14px}
+.poster-card__image-toggle{display:block;width:100%;background:transparent;border:none;padding:0;margin:0 auto;cursor:zoom-in;color:inherit}
+.poster-card__image-toggle:focus-visible{outline:3px solid var(--accent);outline-offset:6px;border-radius:18px}
+.poster-card__image{display:block;width:100%;max-width:100%;height:auto;margin:0 auto;border-radius:14px;transition:max-width .25s ease,box-shadow .25s ease,transform .25s ease}
+.poster-card--expanded{box-shadow:0 24px 60px rgba(0,0,0,.5),0 0 44px rgba(56,189,248,.38)}
+.poster-card--expanded .poster-card__image{max-width:min(90vw,900px);box-shadow:0 30px 80px rgba(0,0,0,.55);transform:scale(1.02)}
+.poster-card--expanded .poster-card__image-toggle{cursor:zoom-out}
 
 .contact{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
 .contact__field{display:grid;gap:.45rem}
 .contact__field span{font-weight:600}
-.contact__field input,.contact__field textarea{padding:.7rem 1rem;border-radius:12px;border:1px solid var(--border);background:rgba(15,23,42,.65);color:var(--text);font-family:var(--font)}
-.contact__field input:focus,.contact__field textarea:focus{outline:2px solid var(--accent);outline-offset:2px}
+.contact__field input,.contact__field textarea{padding:.7rem 1rem;border-radius:12px;border:1px solid var(--border);background:var(--card-bg);color:var(--text);font-family:var(--font);transition:box-shadow .25s ease}
+.contact__field input:hover,.contact__field textarea:hover{box-shadow:0 0 28px rgba(56,189,248,.18)}
+.contact__field input:focus,.contact__field textarea:focus{outline:2px solid var(--accent);outline-offset:2px;box-shadow:0 0 32px rgba(56,189,248,.3)}
 .contact__field--full{grid-column:1 / -1}
 .contact__note{margin-top:1rem;color:var(--muted);max-width:520px}
 
@@ -85,7 +95,6 @@ main{display:grid;gap:5rem}
 <header class="hero" id="top">
   <nav class="nav">
     <ul class="nav__links">
-      <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#publications">Publications</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -108,18 +117,6 @@ field of clinical psychology, with a special focus on integrating modern technol
 </header>
 
 <main>
-  <section class="section" id="about">
-    <div class="section__header"><h2>About</h2></div>
-    <div class="about">
-      <div class="about__bio">
-      <ul class="about__list">
-        <li><strong>Core focus:</strong> Clinical psychology, psychosis rehabilitation, VR research</li>
-        <li><strong>Currently learning:</strong> Bayesian statistics, Unity XR, advanced data methods</li>
-        <li><strong>Tools I rely on:</strong> EEG, SPSS, R, STATA, Ogama, Qualtrics, Unity</li>
-      </ul>
-    </div>
-  </section>
-
   <section class="section section--alt" id="publications">
     <div class="section__header">
       <h2>Publications</h2>
@@ -250,7 +247,9 @@ field of clinical psychology, with a special focus on integrating modern technol
           <h3 class="poster-card__title">Assessing Co-presence in VR Through EEG Hyperscanning</h3>
           <p class="poster-card__meta">Presented at ECPA 2025 (Barcelona) and VR Summit 2025 (Bochum)</p>
         </div>
-        <img src="images/Poster_EEG.png" alt="Poster: Assessing Co-presence in VR Through EEG Hyperscanning" />
+        <button class="poster-card__image-toggle" type="button" aria-label="Expand poster preview" aria-expanded="false">
+          <img class="poster-card__image" src="images/Poster_EEG.png" alt="Poster: Assessing Co-presence in VR Through EEG Hyperscanning" />
+        </button>
       </article>
 
       <article class="poster-card">
@@ -298,6 +297,29 @@ document.querySelectorAll('.publication-card').forEach(card=>{
     content.setAttribute('aria-hidden', String(expanded));
     card.classList.toggle('publication-card--expanded', !expanded);
   });
+});
+
+const posterToggles=document.querySelectorAll('.poster-card__image-toggle');
+posterToggles.forEach(toggle=>{
+  toggle.addEventListener('click',()=>{
+    const card=toggle.closest('.poster-card');
+    if(!card) return;
+    const expanded=card.classList.toggle('poster-card--expanded');
+    toggle.setAttribute('aria-expanded', String(expanded));
+    toggle.setAttribute('aria-label', expanded?'Collapse poster preview':'Expand poster preview');
+  });
+});
+
+document.addEventListener('keydown',event=>{
+  if(event.key!=='Escape') return;
+  const expandedCard=document.querySelector('.poster-card--expanded');
+  if(!expandedCard) return;
+  const toggle=expandedCard.querySelector('.poster-card__image-toggle');
+  expandedCard.classList.remove('poster-card--expanded');
+  if(!toggle) return;
+  toggle.setAttribute('aria-expanded','false');
+  toggle.setAttribute('aria-label','Expand poster preview');
+  toggle.focus();
 });
 </script>
 </body>
