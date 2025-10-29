@@ -1,6 +1,9 @@
 /* ============================================ 
    GLOBAL VARIABLES & RESET
 ============================================ */
+/* ============================================ 
+   GLOBAL VARIABLES & RESET
+============================================ */
 :root {
   --bg: #1a1a1a;               /* Dark grey base */
   --bg-alt: #222222;           /* Slightly lighter grey for contrast */
@@ -15,16 +18,27 @@
 
 * { box-sizing: border-box; }
 
+html {
+  background-color: var(--bg);
+}
+
 body {
   margin: 0;
   font-family: var(--font);
   color: var(--text);
-  background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+  background-color: var(--bg);   /* Solid dark grey */
   line-height: 1.6;
 }
 
-a { color: inherit; text-decoration: none; }
-a:hover, a:focus { color: var(--accent); }
+a { 
+  color: inherit; 
+  text-decoration: none; 
+}
+
+a:hover, 
+a:focus { 
+  color: var(--accent); 
+}
 
 /* ============================================
    PAGE CONTAINER
