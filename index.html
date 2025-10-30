@@ -33,6 +33,11 @@ main{display:grid;gap:3.5rem}
 .section--alt{background:var(--card-bg);padding:2.5rem clamp(1.5rem,5vw,6rem);border-radius:28px;box-shadow:0 40px 80px rgba(0,0,0,.45);transition:box-shadow .25s ease}
 .section--alt:hover,.section--alt:focus-within{box-shadow:0 40px 80px rgba(0,0,0,.45),0 0 36px rgba(56,189,248,.28)}
 
+.projects{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+.project-card{padding:1rem 1.25rem;border-radius:20px;border:1px solid rgba(56,189,248,.55);background:var(--accent-soft);box-shadow:0 18px 36px rgba(8,47,73,.25);display:flex;align-items:center;justify-content:center;text-align:center;transition:transform .2s ease,box-shadow .2s ease}
+.project-card:hover,.project-card:focus-within{transform:translateY(-4px);box-shadow:0 22px 48px rgba(8,47,73,.32)}
+.project-card__name{margin:0;font-size:.9rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+
 .publications{display:grid;gap:1.25rem}
 .publication-card{position:relative;padding:1.75rem 1.5rem 1.5rem;border-radius:24px;background:var(--card-bg);border:1px solid var(--border);box-shadow:0 25px 60px rgba(0,0,0,.45);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
 .publication-card:hover,.publication-card:focus-within{box-shadow:0 25px 60px rgba(0,0,0,.45),0 0 40px rgba(56,189,248,.35)}
@@ -41,11 +46,11 @@ main{display:grid;gap:3.5rem}
 .publication-card__text{display:grid;gap:.75rem}
 .publication-card__title{margin:0;font-size:1.1rem}
 .publication-card__meta{margin:0;color:var(--muted);font-size:.92rem}
-.publication-card__icon{flex-shrink:0;width:1.5rem;height:1.5rem;border-radius:999px;border:1px solid rgba(56,189,248,.65);display:inline-flex;align-items:center;justify-content:center;position:relative}
+.publication-card__icon{flex-shrink:0;width:1.5rem;height:1.5rem;border-radius:999px;border:1px solid rgba(56,189,248,.65);display:inline-flex;align-items:center;justify-content:center;position:relative;margin-top:1.2rem}
 .publication-card__icon::before,.publication-card__icon::after{content:'';position:absolute;width:.7rem;height:2px;background:var(--accent)}
 .publication-card__icon::after{transform:rotate(90deg)}
 .publication-card__content{display:grid;gap:1rem;margin-top:0;max-height:0;overflow:hidden;opacity:0;visibility:hidden;pointer-events:none;transition:max-height .4s ease,opacity .25s ease,margin-top .25s ease}
-.publication-card__abstract{margin:0;color:#cbd5f5}
+.publication-card__abstract{margin:0;color:#cbd5f5;font-size:.82rem;text-align:justify}
 .publication-card__cta{justify-self:start}
 .publication-card--expanded{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 25px 70px rgba(0,0,0,.5),0 0 48px rgba(56,189,248,.4)}
 .publication-card--expanded .publication-card__content{max-height:420px;opacity:1;margin-top:1rem;visibility:visible;pointer-events:auto}
@@ -114,6 +119,37 @@ field of clinical psychology, with a special focus on integrating modern technol
 </header>
 
 <main>
+  <section class="section section--alt" id="projects">
+    <div class="section__header">
+      <h2>Projects</h2>
+      <p>A snapshot of collaborations and initiatives I've contributed to.</p>
+    </div>
+
+    <div class="projects">
+      <article class="project-card">
+        <h3 class="project-card__name">Psymulator</h3>
+      </article>
+      <article class="project-card">
+        <h3 class="project-card__name">PRESENCE</h3>
+      </article>
+      <article class="project-card">
+        <h3 class="project-card__name">VERTEX</h3>
+      </article>
+      <article class="project-card">
+        <h3 class="project-card__name">MoTIVE</h3>
+      </article>
+      <article class="project-card">
+        <h3 class="project-card__name">Google</h3>
+      </article>
+      <article class="project-card">
+        <h3 class="project-card__name">TEDIX</h3>
+      </article>
+      <article class="project-card">
+        <h3 class="project-card__name">YoungFitT</h3>
+      </article>
+    </div>
+  </section>
+
   <section class="section section--alt" id="publications">
     <div class="section__header">
       <h2>Publications</h2>
