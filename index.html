@@ -97,6 +97,7 @@ main{display:grid;gap:3.5rem}
   .footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.25rem}
 }
 </style>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
 <header class="hero" id="top">
@@ -287,6 +288,20 @@ field of clinical psychology, with a special focus on integrating modern technol
     </div>
   </section>
   
+  <!-- ✅ NEW 3D MODEL VIEWER SECTION -->
+  <section id="model-demo" class="section section--alt">
+    <div class="section__header">
+      <h2>3D Model</h2>
+      <p>Interact with one of my 3D creations — feel free to spin it around!</p>
+    </div>
+    <model-viewer src="models/roger_model.glb"
+                  alt="3D model preview"
+                  auto-rotate
+                  camera-controls
+                  shadow-intensity="1">
+    </model-viewer>
+  </section>
+
   <!-- === CONTACT SECTION === -->
   <section class="section" id="contact">
     <div class="section__header">
