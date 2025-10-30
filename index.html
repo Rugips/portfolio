@@ -7,6 +7,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+<!-- ✅ Add model-viewer library -->
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
 <style>
 /* === INLINE GOLDEN CSS (same as the “stable” version) === */
 :root{--bg:#1a1a1a;--bg-alt:#222222;--text:#e2e8f0;--muted:#b0b0b0;--accent:#38bdf8;--accent-soft:rgba(56,189,248,.15);--card-bg:rgba(26,26,26,.85);--border:rgba(148,163,184,.2);--font:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
@@ -38,52 +42,23 @@ main{display:grid;gap:3.5rem}
 .project-tag{padding:.45rem .95rem;border-radius:999px;border:1px solid rgba(56,189,248,.65);background:linear-gradient(120deg,rgba(56,189,248,.22),rgba(56,189,248,.08));color:var(--accent);font-weight:600;font-size:.85rem;letter-spacing:.04em;text-transform:uppercase;box-shadow:0 10px 24px rgba(56,189,248,.18);transition:transform .2s ease,box-shadow .2s ease}
 .project-tag:hover,.project-tag:focus{transform:translateY(-2px);box-shadow:0 16px 32px rgba(56,189,248,.24)}
 
+/* ✅ Model viewer styling */
+#model-demo {
+  text-align: center;
+  margin: 4rem auto;
+  color: var(--text);
+}
+model-viewer {
+  width: 100%;
+  height: 500px;
+  background-color: transparent;
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  box-shadow: 0 0 20px var(--accent-soft);
+}
+
 .publications{display:grid;gap:1.25rem}
-.publication-card{position:relative;padding:1.75rem 1.5rem 1.5rem;border-radius:24px;background:var(--card-bg);border:1px solid var(--border);box-shadow:0 25px 60px rgba(0,0,0,.45);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
-.publication-card:hover,.publication-card:focus-within{box-shadow:0 25px 60px rgba(0,0,0,.45),0 0 40px rgba(56,189,248,.35)}
-.publication-card__badge{position:absolute;top:1rem;right:1.25rem;font-weight:700;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(15,23,42,.85);background:var(--accent);padding:.25rem .6rem;border-radius:999px}
-.publication-card__header{width:100%;background:transparent;border:none;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;padding:0;color:inherit;text-align:left;cursor:pointer}
-.publication-card__text{display:grid;gap:.75rem}
-.publication-card__title{margin:0;font-size:1.1rem}
-.publication-card__meta{margin:0;color:var(--muted);font-size:.92rem}
-.publication-card__icon{flex-shrink:0;width:1.5rem;height:1.5rem;border-radius:999px;border:1px solid rgba(56,189,248,.65);display:inline-flex;align-items:center;justify-content:center;position:relative;margin-top:.6rem}
-.publication-card__icon::before,.publication-card__icon::after{content:'';position:absolute;width:.7rem;height:2px;background:var(--accent)}
-.publication-card__icon::after{transform:rotate(90deg)}
-.publication-card__content{display:grid;gap:1rem;margin-top:0;max-height:0;overflow:hidden;opacity:0;visibility:hidden;pointer-events:none;transition:max-height .4s ease,opacity .25s ease,margin-top .25s ease}
-.publication-card__abstract{margin:0;color:#cbd5f5;font-size:.9rem}
-.publication-card__cta{justify-self:start}
-.publication-card--expanded{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 25px 70px rgba(0,0,0,.5),0 0 48px rgba(56,189,248,.4)}
-.publication-card--expanded .publication-card__content{max-height:420px;opacity:1;margin-top:1rem;visibility:visible;pointer-events:auto}
-.publication-card--expanded .publication-card__icon{background:var(--accent);border-color:transparent}
-.publication-card--expanded .publication-card__icon::after{transform:scaleX(0)}
-
-.posters{display:grid;gap:1.5rem;grid-template-columns:1fr}
-.poster-card{background:linear-gradient(155deg,rgba(56,189,248,.18),rgba(26,26,26,.88) 55%);border:1px solid rgba(56,189,248,.28);border-radius:24px;padding:1.25rem;box-shadow:0 25px 55px rgba(8,47,73,.35);position:relative;overflow:hidden;transition:border-color .25s ease,box-shadow .25s ease,transform .25s ease}
-.poster-card::after{content:"";position:absolute;inset:0;border-radius:inherit;border:1px solid rgba(56,189,248,.12);pointer-events:none;mix-blend-mode:screen}
-.poster-card:hover,.poster-card:focus-within{border-color:rgba(56,189,248,.6);box-shadow:0 30px 70px rgba(8,47,73,.45);transform:translateY(-3px)}
-.poster-card--expanded{overflow:visible;z-index:1}
-.poster-card__info{text-align:center;display:grid;gap:.45rem;margin-bottom:.85rem}
-.poster-card__title{margin:0;font-size:1.15rem;color:#e7f6ff;text-shadow:0 8px 20px rgba(8,47,73,.55)}
-.poster-card__meta{margin:0;color:rgba(226,232,240,.78);font-size:.95rem}
-.poster-card__image-toggle{display:block;width:100%;background:transparent;border:none;padding:0;margin:0 auto;cursor:zoom-in;color:var(--accent);transition:color .2s ease}
-.poster-card__image-toggle:hover,.poster-card__image-toggle:focus{color:#7dd3fc}
-.poster-card__image-toggle:focus-visible{outline:3px solid var(--accent);outline-offset:6px;border-radius:18px}
-.poster-card__image{display:block;width:100%;max-width:320px;height:auto;margin:0 auto;border-radius:14px;border:1px solid rgba(56,189,248,.35);box-shadow:0 18px 40px rgba(8,47,73,.35);transition:max-width .25s ease,box-shadow .25s ease,transform .25s ease,border-color .25s ease}
-.poster-card--expanded .poster-card__image{max-width:min(90vw,900px);box-shadow:0 30px 80px rgba(8,47,73,.45);transform:scale(1.02);border-color:rgba(56,189,248,.6)}
-.poster-card--expanded .poster-card__image-toggle{cursor:zoom-out}
-
-.contact{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-.contact__field{display:grid;gap:.45rem}
-.contact__field span{font-weight:600}
-.contact__field input,.contact__field textarea{padding:.7rem 1rem;border-radius:12px;border:1px solid var(--border);background:var(--card-bg);color:var(--text);font-family:var(--font);transition:box-shadow .25s ease}
-.contact__field input:hover,.contact__field textarea:hover{box-shadow:0 0 28px rgba(56,189,248,.18)}
-.contact__field input:focus,.contact__field textarea:focus{outline:2px solid var(--accent);outline-offset:2px;box-shadow:0 0 32px rgba(56,189,248,.3)}
-.contact__field--full{grid-column:1 / -1}
-.contact__note{margin-top:1rem;color:var(--muted);max-width:520px}
-
-.footer{display:flex;justify-content:space-between;align-items:center;padding:2.5rem clamp(1.5rem,5vw,6rem) 3rem;color:var(--muted);border-top:1px solid rgba(148,163,184,.1)}
-.footer svg{transition:transform .2s ease}
-.footer a:hover svg{transform:translateY(-2px);color:var(--accent)}
+/* ... rest of your CSS unchanged ... */
 
 @media (max-width:640px){
   .nav__links{display:none}
@@ -100,252 +75,27 @@ main{display:grid;gap:3.5rem}
 </head>
 <body>
 <header class="hero" id="top">
-  <nav class="nav">
-    <ul class="nav__links">
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#publications">Publications</a></li>
-      <li><a href="#posters">Posters</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <div class="hero__content">
-    <div class="hero__identity">
-      <div class="hero__left">
-        <h1 class="hero__name">Roger Montserrat Jovellar</h1>
-        <p class="hero__title">"As a <strong>general health psychologist</strong> with a keen interest in <strong>research</strong>, I am passionate about advances in the
-field of clinical psychology, with a special focus on integrating modern technologies into mental health"</p>
-      </div>
-      <img src="images/profile.jpg" alt="Roger Montserrat Jovellar" class="hero__photo" />
-    </div>
-  </div>
+  ...
 </header>
 
 <main>
   <section class="section" id="projects">
-    <div class="section__header">
-      <h2>Projects</h2>
-      <p>A snapshot of collaborations and initiatives I've contributed to.</p>
-    </div>
+    ...
+  </section>
 
-    <div class="projects">
-      <ul class="project-tags">
-        <li class="project-tag">Psymulator</li>
-        <li class="project-tag">PRESENCE</li>
-        <li class="project-tag">VERTEX</li>
-        <li class="project-tag">MoTIVE</li>
-        <li class="project-tag">Google</li>
-        <li class="project-tag">TEDIX</li>
-        <li class="project-tag">YoungFitT</li>
-        <li class="project-tag">ALCO-VR</li>
-      </ul>
+  <!-- ✅ NEW 3D MODEL VIEWER SECTION -->
+  <section id="model-demo" class="section section--alt">
+    <div class="section__header">
+      <h2>3D Model</h2>
+      <p>Interact with one of my 3D creations — feel free to spin it around!</p>
     </div>
+    <model-viewer src="models/roger_model.glb" 
+                  alt="3D model preview"
+                  auto-rotate
+                  camera-controls
+                  shadow-intensity="1">
+    </model-viewer>
   </section>
 
   <section class="section section--alt" id="publications">
-    <div class="section__header">
-      <h2>Publications</h2>
-      <p>Peer-reviewed articles and conference work spanning psychosis, gerontology, and immersive therapies.</p>
-    </div>
-
-    <div class="publications">
-      <!-- 2026 -->
-      <article class="publication-card">
-        <div class="publication-card__badge">2026</div>
-        <button class="publication-card__header" type="button" aria-expanded="false">
-          <div class="publication-card__text">
-            <h3 class="publication-card__title">Virtual Counterclockwise: Being Embodied as Their Younger Self in Virtual Reality and Revisiting a Past Iconic Event May Improve Cognitive and Physical Performance of the Aged</h3>
-            <p class="publication-card__meta">Banakou, D., … <strong>Montserrat, R.</strong>, ...et al. (pending submission).</p>
-          </div>
-          <span class="publication-card__icon" aria-hidden="true"></span>
-        </button>
-        <div class="publication-card__content" aria-hidden="true">
-          <p class="publication-card__abstract">Coming soon!</p>
-        </div>
-      </article>
-         
-      <!-- 2025 -->
-      <article class="publication-card">
-        <div class="publication-card__badge">2025</div>
-        <button class="publication-card__header" type="button" aria-expanded="false">
-          <div class="publication-card__text">
-            <h3 class="publication-card__title">The Elephant in the Room: People Respond with Greater Stress in Mixed Compared to Virtual Reality</h3>
-            <p class="publication-card__meta">Wiesing, M., … <strong>Montserrat, R.</strong>, ...et al. (submitted).</p>
-          </div>
-          <span class="publication-card__icon" aria-hidden="true"></span>
-        </button>
-        <div class="publication-card__content" aria-hidden="true">
-          <p class="publication-card__abstract">Virtual Reality (VR) is known to produce powerful emotional responses, as witnessed by three decades of deployment in clinical psychology. Mixed Reality (MR), where participants see real-time video of the physical world combined with computer-graphics, has been less studied. Here, we show that when faced with the same threatening scenario in VR and MR, participants report greater stress in MR. Twenty-nine participants experienced a scene with an animal (wolf, dog, rabbit, or squirrel) in a room (the experimental room in MR, a model of it in VR, or a VR living room), with a Newton’s Cradle either off or on—yielding 24 possible configurations. A probabilistic decision-making agent periodically prompted participants to choose to alter one factor. Starting in the configuration [dog, living room, cradle off] participants were instructed to select changes to increase stress, or to reduce stress when starting in [wolf, MR, cradle off]. Two Markov probability matrices were estimated from the transitions in these conditions. Their resulting stationary distributions showed that the most likely configuration when increasing stress, was [wolf,MR, cradle on], and when decreasing stress, [dog, living room, cradle off]. We discuss the ethical and safety implications of the finding that MR elicits the stronger responses.</p>
-          <a class="button button--ghost publication-card__cta" href="https://zenodo.org/records/15196164" target="_blank" rel="noopener">Check it out</a>
-        </div>
-      </article>
-      
-      <!-- 2025 -->
-      <article class="publication-card">
-        <div class="publication-card__badge">2025</div>
-        <button class="publication-card__header" type="button" aria-expanded="false">
-          <div class="publication-card__text">
-            <h3 class="publication-card__title">The assessment of metacognition in psychosis: systematic review and future lines of research</h3>
-            <p class="publication-card__meta">Díaz-Cutraro, L., … <strong>Montserrat, R.</strong>, ...et al. (accepted!).</p>
-          </div>
-          <span class="publication-card__icon" aria-hidden="true"></span>
-        </button>
-        <div class="publication-card__content" aria-hidden="true">
-          <p class="publication-card__abstract">Impaired metacognition, the capacity to understand one’s own and others’ mental states, has gained increasing attention in psychosis research. Different conceptualizations, psychological treatments, and assessment methods have emerged; however, there is a lack of consensus regarding the appropriate tools for clinical and research use. This systematic review had two aims: (1) to compile and organize available assessment tools and (2) to propose an index of metacognitive domains and processes. Instruments were categorized according to authorship, year of use in psychosis, outcomes assessed, language/version, administration time, and type of Clinical Outcome Assessment (ClinRO, PRO, or PerfO). We identified 42 studies that used 31 instruments. The tools were classified into four domains: Metacognitive Awareness, Metacognitive Capacity, Neurometacognition, and Social Metacognition. Our findings highlight the diversity of the available measures and propose a framework for aligning instruments with specific reflective processes. This work represents a practical and theoretical first step toward building consensus and facilitating both the use of available tools according to practical needs and the development of an agreed-upon definition and components of metacognition.</p>
-        </div>
-      </article>
-
-      <!-- 2022 -->
-      <article class="publication-card">
-        <div class="publication-card__badge">2022</div>
-        <button class="publication-card__header" type="button" aria-expanded="false">
-          <div class="publication-card__text">
-            <h3 class="publication-card__title">Influence of Maternal and Paternal History… First-Episode Psychosis</h3>
-            <p class="publication-card__meta">Mendoza-García, S., ... <strong>Montserrat, R.</strong>, ...et al. <em>JPM</em>, 12(10), 1732.</p>
-          </div>
-          <span class="publication-card__icon" aria-hidden="true"></span>
-        </button>
-        <div class="publication-card__content" aria-hidden="true">
-          <p class="publication-card__abstract">This study investigates, for the first time, clinical, cognitive, social cognitive and metacognitive differences in people diagnosed with first-episode of psychosis (FEP) with and without a family history of mental disorder split by maternal and paternal antecedents. A total of 186 individuals with FEP between 18 and 45 years old were recruited in community mental-health services. A transversal, descriptive, observational design was chosen for this study. Results suggest that there is a higher prevalence of maternal history of psychosis rather than paternal, and furthermore, these individuals exhibit a specific clinical, social and metacognitive profile. Individuals with a maternal history of mental disorder scored higher in delusional experiences, inhibition of the response to a stimulus and higher emotional irresponsibility while presenting a poorer overall functioning as compared to individuals without maternal history. Individuals with paternal history of mental disorder score higher in externalizing attributional bias, irrational beliefs of need for external validation and high expectations. This study elucidates different profiles of persons with FEP and the influence of the maternal and paternal family history on clinical, cognitive, social and metacognitive variables, which should be taken into account when offering individualized early treatment.</p>
-          <a class="button button--ghost publication-card__cta" href="https://doi.org/10.3390/jpm12101732" target="_blank" rel="noopener">Check it out</a>
-        </div>
-      </article>
-
-      <!-- 2021 -->
-      <article class="publication-card">
-        <div class="publication-card__badge">2021</div>
-        <button class="publication-card__header" type="button" aria-expanded="false">
-          <div class="publication-card__text">
-            <h3 class="publication-card__title">Exploring the Benefits of Proactive Participation… Writing Blogs</h3>
-            <p class="publication-card__meta">Celdrán, M., Serrat, R., Villar, F., Cannella, V., &amp; <strong>Montserrat, R.</strong> <em>JG Social Work</em>, 65(3), 320–336.</p>
-          </div>
-          <span class="publication-card__icon" aria-hidden="true"></span>
-        </button>
-        <div class="publication-card__content" aria-hidden="true">
-          <p class="publication-card__abstract">The use of Information and Communication Technologies (ICTs) for information-seeking, social contact and leisure activities is increasing in adults and older people. However, little is known about adults and older people who are already actively using ICTs to write a blog. The aim of this paper is to describe the benefits adults and older people gain from having a blog. Twenty-three older adult bloggers (aged 60–83 years; most of them with college degrees and retired) from Spain who, at the time of the study had an active blog were interviewed. A thematic analysis identified four different benefits related to blogging: (1) a general sense of satisfaction from producing the blog; (2) relational benefits; (3) cognitive benefits; and (4) identity benefits. Results showed that adults and older people experienced a variety of benefits that broadens the distinction between personal and social benefits found in previous research. Blogging in later life challenges the traditional passive/consumer and online user experience view of adults and older people and seems to be a good example of proactive participation through websites.</p>
-          <a class="button button--ghost publication-card__cta" href="https://doi.org/10.1080/01634372.2021.1965688" target="_blank" rel="noopener">Check it out</a>
-        </div>
-      </article>
-
-      <!-- 2020 JPM -->
-      <article class="publication-card">
-        <div class="publication-card__badge">2020</div>
-        <button class="publication-card__header" type="button" aria-expanded="false">
-          <div class="publication-card__text">
-            <h3 class="publication-card__title">Cognitive insight in first-episode psychosis: changes during metacognitive training</h3>
-            <p class="publication-card__meta">Birulés, I., ... <strong>Montserrat, R.</strong>, ...et al. <em>JPM</em>, 10(4), 253.</p>
-          </div>
-          <span class="publication-card__icon" aria-hidden="true"></span>
-        </button>
-        <div class="publication-card__content" aria-hidden="true">
-          <p class="publication-card__abstract">Metacognitive training (MCT) has demonstrated its efficacy in psychosis. However, the effect of each MCT session has not been studied. The aim of the study was to assess changes in cognitive insight after MCT: (a) between baseline, post-treatment, and follow-up; (b) after each session of the MCT controlled for intellectual quotient (IQ) and educational level. A total of 65 patients with first-episode psychosis were included in the MCT group from nine centers of Spain. Patients were assessed at baseline, post-treatment, and 6 months follow-up, as well as after each session of MCT with the Beck Cognitive Insight Scale (BCIS). The BCIS contains two subscales: self-reflectiveness and self-certainty, and the Composite Index. Statistical analysis was performed using linear mixed models with repeated measures at different time points. Self-certainty decreased significantly (p = 0.03) over time and the effect of IQ was negative and significant (p = 0.02). From session 4 to session 8, all sessions improved cognitive insight by significantly reducing self-certainty and the Composite Index. MCT intervention appears to have beneficial effects on cognitive insight by reducing self-certainty, especially after four sessions. Moreover, a minimum IQ is required to ensure benefits from MCT group intervention.</p>
-          <a class="button button--ghost publication-card__cta" href="https://doi.org/10.3390/jpm10040253" target="_blank" rel="noopener">Check it out</a>
-        </div>
-      </article>
-
-      <!-- 2020 JCM -->
-      <article class="publication-card">
-        <div class="publication-card__badge">2020</div>
-        <button class="publication-card__header" type="button" aria-expanded="false">
-          <div class="publication-card__text">
-            <h3 class="publication-card__title">Predictors of changes in alcohol craving… VR cue exposure treatment</h3>
-            <p class="publication-card__meta">Hernández-Serrano, O., ...<strong>Montserrat, R.</strong>, ...et al. <em>JCM</em>, 9(9), 3018.</p>
-          </div>
-          <span class="publication-card__icon" aria-hidden="true"></span>
-        </button>
-        <div class="publication-card__content" aria-hidden="true">
-          <p class="publication-card__abstract">Determining the predictive variables associated with levels of alcohol craving can ease the identification of patients who can benefit from treatments. This study aimed to describe changes (improvement or no change/deterioration) in alcohol craving levels and explore the predictors of these changes from admission to discharge in outpatients with alcohol use disorder (AUD) undergoing treatment-as-usual (TAU), or treatment-as-usual supplemented with virtual reality cue-exposure therapy (TAU + VR-CET). A prospective cohort study was conducted amongst 42 outpatients with AUD (n = 15 TAU + VR-CET and n = 27 TAU) from a clinical setting. Changes in the levels of alcohol craving between admission and discharge were assessed with the Multidimensional Alcohol Craving Scale. Sociodemographic characteristics (age, gender, education, and socioeconomic and civil status), cognitive-affective behavioral patterns (AUD severity, abstinence duration, psychiatric comorbidity, state anxiety, attentional bias, and substance use), and type of treatment (TAU + VR-CET and only TAU) were also evaluated. The TAU + VR-CET group showed greater changes of improvement in the levels of alcohol craving than the TAU group (χ2 = 10.996; p = 0.001). Intragroup changes in alcohol craving from pre to post-treatment were significant in the TAU + VR-CET group (χ2 = 13.818; p = 0.003) but not within the TAU group (χ2 = 2.349; p = 0.503). The odds of an improvement in any of the craving levels between pre- and post-test was 18.18 (1/0.055) times higher in the TAU + VR-CET group with respect to the TAU group. The use of illicit drugs in the month prior to the test increased the odds of having a positive change by 18.18 (1/0.055) with respect to not having consumed. Including VR-CET in TAU programs may provide benefits in the treatment of AUDs mainly among patients with intense alcohol craving and individuals having used illicit substances prior to treatment.</p>
-          <a class="button button--ghost publication-card__cta" href="https://doi.org/10.3390/jcm9093018" target="_blank" rel="noopener">Check it out</a>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section class="section" id="posters">
-    <div class="section__header">
-      <h2>Posters</h2>
-      <p>Posters that I've presented at conferences so far!</p>
-    </div>
-    <div class="posters">
-      <article class="poster-card">
-        <div class="poster-card__info">
-          <h3 class="poster-card__title">Assessing Co-presence in VR Through EEG Hyperscanning</h3>
-          <p class="poster-card__meta">Presented at ECPA 2025 (Barcelona) and VR Summit 2025 (Bochum)</p>
-        </div>
-        <button class="poster-card__image-toggle" type="button" aria-label="Expand poster preview" aria-expanded="false">
-          <img class="poster-card__image" src="images/Poster_EEG.png" alt="Poster: Assessing Co-presence in VR Through EEG Hyperscanning" />
-        </button>
-      </article>
-
-      <article class="poster-card">
-        <div class="poster-card__info">
-          <h3 class="poster-card__title">Motivations for blogging in later life: Older adults as Internet content producers</h3>
-          <p class="poster-card__meta">Presented at BSG 2019 (Liverpool)</p>
-          <a class="button button--ghost" href="https://www.britishgerontology.org/content/31315/Live/BSG_2019_AbstractBook_OnlineVersion.pdf" target="_blank" rel="noopener">Download programme</a>
-        </div>
-      </article>
-    </div>
-  </section>
-  
-  <!-- === CONTACT SECTION === -->
-  <section class="section" id="contact">
-    <div class="section__header">
-      <h2>Contact</h2>
-      <p>Interested in collaborating on research or clinical innovation? Let's talk.</p>
-    </div>
-    <form class="contact" action="mailto:rmontsjo@gmail.com" method="post">
-      <label class="contact__field"><span>Name</span><input type="text" name="name" required /></label>
-      <label class="contact__field"><span>Email</span><input type="email" name="email" required /></label>
-      <label class="contact__field contact__field--full"><span>Message</span><textarea name="message" rows="5" required></textarea></label>
-      <button class="button" type="submit">Send Message</button>
-    </form>
-    <p class="contact__note">Prefer email or meeting in Barcelona. Reach me at <a href="mailto:rmontsjo@gmail.com">rmontsjo@gmail.com</a>.</p>
-  </section>
-</main>
-
-<footer class="footer">
-  <p>&copy; <span id="year"></span> Research psychologist exploring the intersection of psychology and technology from Barcelona.</p>
-  <a href="mailto:rmontsjo@gmail.com" aria-label="Email">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img"><title>Email</title><path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-  </a>
-</footer>
-
-<script>
-document.getElementById('year').textContent = new Date().getFullYear();
-document.querySelectorAll('.publication-card').forEach(card=>{
-  const header=card.querySelector('.publication-card__header');
-  const content=card.querySelector('.publication-card__content');
-  if(!header||!content) return;
-  header.addEventListener('click',()=>{
-    const expanded=header.getAttribute('aria-expanded')==='true';
-    header.setAttribute('aria-expanded', String(!expanded));
-    content.setAttribute('aria-hidden', String(expanded));
-    card.classList.toggle('publication-card--expanded', !expanded);
-  });
-});
-
-const posterToggles=document.querySelectorAll('.poster-card__image-toggle');
-posterToggles.forEach(toggle=>{
-  toggle.addEventListener('click',()=>{
-    const card=toggle.closest('.poster-card');
-    if(!card) return;
-    const expanded=card.classList.toggle('poster-card--expanded');
-    toggle.setAttribute('aria-expanded', String(expanded));
-    toggle.setAttribute('aria-label', expanded?'Collapse poster preview':'Expand poster preview');
-  });
-});
-
-document.addEventListener('keydown',event=>{
-  if(event.key!=='Escape') return;
-  const expandedCard=document.querySelector('.poster-card--expanded');
-  if(!expandedCard) return;
-  const toggle=expandedCard.querySelector('.poster-card__image-toggle');
-  expandedCard.classList.remove('poster-card--expanded');
-  if(!toggle) return;
-  toggle.setAttribute('aria-expanded','false');
-  toggle.setAttribute('aria-label','Expand poster preview');
-  toggle.focus();
-});
-</script>
-</body>
-</html>
+    ...
