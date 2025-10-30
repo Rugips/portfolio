@@ -288,13 +288,19 @@ field of clinical psychology, with a special focus on integrating modern technol
     </div>
   </section>
   
-  <!-- ✅ NEW 3D MODEL VIEWER SECTION -->
+  <!-- 3D MODEL VIEWER SECTION -->
   <section id="model-demo" class="section section--alt">
     <div class="section__header">
-      <h2>3D Model</h2>
-      <p>Interact with one of my 3D creations — feel free to spin it around!</p>
+      <h2>3D Models</h2>
+      <p>Interact with my 3D creations!</p>
     </div>
     <model-viewer src="pokeball.glb"
+                  alt="3D model preview"
+                  auto-rotate
+                  camera-controls
+                  shadow-intensity="1">
+    </model-viewer>
+    <model-viewer src="eventlablogo.glb"
                   alt="3D model preview"
                   auto-rotate
                   camera-controls
