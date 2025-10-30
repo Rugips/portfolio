@@ -33,6 +33,10 @@ main{display:grid;gap:3.5rem}
 .section--alt{background:var(--card-bg);padding:2.5rem clamp(1.5rem,5vw,6rem);border-radius:28px;box-shadow:0 40px 80px rgba(0,0,0,.45);transition:box-shadow .25s ease}
 .section--alt:hover,.section--alt:focus-within{box-shadow:0 40px 80px rgba(0,0,0,.45),0 0 36px rgba(56,189,248,.28)}
 
+.projects{display:grid;gap:1.25rem}
+.project-tags{list-style:none;display:flex;flex-wrap:wrap;gap:.75rem;padding:0;margin:0}
+.project-tag{padding:.45rem .95rem;border-radius:999px;border:1px solid rgba(56,189,248,.6);background:var(--accent-soft);color:var(--accent);font-weight:600;font-size:.85rem;letter-spacing:.04em;text-transform:uppercase}
+
 .publications{display:grid;gap:1.25rem}
 .publication-card{position:relative;padding:1.75rem 1.5rem 1.5rem;border-radius:24px;background:var(--card-bg);border:1px solid var(--border);box-shadow:0 25px 60px rgba(0,0,0,.45);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
 .publication-card:hover,.publication-card:focus-within{box-shadow:0 25px 60px rgba(0,0,0,.45),0 0 40px rgba(56,189,248,.35)}
@@ -114,6 +118,25 @@ field of clinical psychology, with a special focus on integrating modern technol
 </header>
 
 <main>
+  <section class="section" id="projects">
+    <div class="section__header">
+      <h2>Projects</h2>
+      <p>A snapshot of collaborations and initiatives I've contributed to.</p>
+    </div>
+
+    <div class="projects">
+      <ul class="project-tags">
+        <li class="project-tag">Psymulator</li>
+        <li class="project-tag">PRESENCE</li>
+        <li class="project-tag">VERTEX</li>
+        <li class="project-tag">MoTIVE</li>
+        <li class="project-tag">Google</li>
+        <li class="project-tag">TEDIX</li>
+        <li class="project-tag">YoungFitT</li>
+      </ul>
+    </div>
+  </section>
+
   <section class="section section--alt" id="publications">
     <div class="section__header">
       <h2>Publications</h2>
