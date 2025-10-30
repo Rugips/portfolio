@@ -159,29 +159,19 @@ main { display: grid; gap: 5rem; }
   border-top: 1px solid rgba(255,255,255,.05);
 }
 
-/* === 3D MODEL VIEWER SECTION === */
-#model-demo {
-  text-align: center;
-  margin: 4rem auto;
-  color: var(--text);
+/* === MULTIPLE 3D MODELS SIDE BY SIDE === */
+.model-grid {
+  display: flex;
+  justify-content: center;    /* Centers them horizontally */
+  align-items: flex-start;    /* Aligns them at the top */
+  flex-wrap: wrap;            /* Moves them to the next row if screen is narrow */
+  gap: 2rem;                  /* Space between them */
+  margin-top: 1.5rem;
 }
 
-#model-demo h2 {
-  color: var(--accent);
-  text-shadow: 0 0 20px var(--accent-soft);
-  margin-bottom: 0.5rem;
-}
-
-#model-demo p {
-  color: var(--muted);
-  margin-bottom: 1.5rem;
-}
-
-model-viewer {
-  width: 100%;
-  max-width: 700px;
-  height: 500px;
-  margin: 0 auto;
+.model-grid model-viewer {
+  width: 320px;               /* Size of each model frame */
+  height: 320px;
   background: radial-gradient(circle at center, var(--bg-alt), var(--bg));
   border: 1px solid var(--accent);
   border-radius: 18px;
@@ -189,14 +179,8 @@ model-viewer {
   transition: box-shadow 0.4s ease;
 }
 
-model-viewer:hover {
+.model-grid model-viewer:hover {
   box-shadow: 0 0 55px rgba(56,189,248,0.35);
-}
-
-/* Optional loading progress bar styling */
-model-viewer::part(default-progress-bar) {
-  background-color: var(--accent-soft);
-  height: 4px;
 }
 
 /* ============================================
