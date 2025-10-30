@@ -35,7 +35,8 @@ main{display:grid;gap:3.5rem}
 
 .projects{display:grid;gap:1.25rem}
 .project-tags{list-style:none;display:flex;flex-wrap:wrap;gap:.75rem;padding:0;margin:0}
-.project-tag{padding:.45rem .95rem;border-radius:999px;border:1px solid rgba(56,189,248,.6);background:var(--accent-soft);color:var(--accent);font-weight:600;font-size:.85rem;letter-spacing:.04em;text-transform:uppercase}
+.project-tag{padding:.45rem .95rem;border-radius:999px;border:1px solid rgba(56,189,248,.65);background:linear-gradient(120deg,rgba(56,189,248,.22),rgba(56,189,248,.08));color:var(--accent);font-weight:600;font-size:.85rem;letter-spacing:.04em;text-transform:uppercase;box-shadow:0 10px 24px rgba(56,189,248,.18);transition:transform .2s ease,box-shadow .2s ease}
+.project-tag:hover,.project-tag:focus{transform:translateY(-2px);box-shadow:0 16px 32px rgba(56,189,248,.24)}
 
 .publications{display:grid;gap:1.25rem}
 .publication-card{position:relative;padding:1.75rem 1.5rem 1.5rem;border-radius:24px;background:var(--card-bg);border:1px solid var(--border);box-shadow:0 25px 60px rgba(0,0,0,.45);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
@@ -57,15 +58,18 @@ main{display:grid;gap:3.5rem}
 .publication-card--expanded .publication-card__icon::after{transform:scaleX(0)}
 
 .posters{display:grid;gap:1.5rem;grid-template-columns:1fr}
-.poster-card{background:var(--card-bg);border:1px solid var(--border);border-radius:24px;padding:1.25rem;box-shadow:0 20px 40px rgba(8,47,73,.3);position:relative;overflow:hidden}
+.poster-card{background:linear-gradient(155deg,rgba(56,189,248,.18),rgba(26,26,26,.88) 55%);border:1px solid rgba(56,189,248,.28);border-radius:24px;padding:1.25rem;box-shadow:0 25px 55px rgba(8,47,73,.35);position:relative;overflow:hidden;transition:border-color .25s ease,box-shadow .25s ease,transform .25s ease}
+.poster-card::after{content:"";position:absolute;inset:0;border-radius:inherit;border:1px solid rgba(56,189,248,.12);pointer-events:none;mix-blend-mode:screen}
+.poster-card:hover,.poster-card:focus-within{border-color:rgba(56,189,248,.6);box-shadow:0 30px 70px rgba(8,47,73,.45);transform:translateY(-3px)}
 .poster-card--expanded{overflow:visible;z-index:1}
-.poster-card__info{text-align:center;display:grid;gap:.4rem;margin-bottom:.75rem}
-.poster-card__title{margin:0;font-size:1.15rem;color:#fff}
-.poster-card__meta{margin:0;color:var(--muted);font-size:.95rem}
-.poster-card__image-toggle{display:block;width:100%;background:transparent;border:none;padding:0;margin:0 auto;cursor:zoom-in;color:inherit}
+.poster-card__info{text-align:center;display:grid;gap:.45rem;margin-bottom:.85rem}
+.poster-card__title{margin:0;font-size:1.15rem;color:#e7f6ff;text-shadow:0 8px 20px rgba(8,47,73,.55)}
+.poster-card__meta{margin:0;color:rgba(226,232,240,.78);font-size:.95rem}
+.poster-card__image-toggle{display:block;width:100%;background:transparent;border:none;padding:0;margin:0 auto;cursor:zoom-in;color:var(--accent);transition:color .2s ease}
+.poster-card__image-toggle:hover,.poster-card__image-toggle:focus{color:#7dd3fc}
 .poster-card__image-toggle:focus-visible{outline:3px solid var(--accent);outline-offset:6px;border-radius:18px}
-.poster-card__image{display:block;width:100%;max-width:320px;height:auto;margin:0 auto;border-radius:14px;transition:max-width .25s ease,box-shadow .25s ease,transform .25s ease}
-.poster-card--expanded .poster-card__image{max-width:min(90vw,900px);box-shadow:0 30px 80px rgba(8,47,73,.45);transform:scale(1.02)}
+.poster-card__image{display:block;width:100%;max-width:320px;height:auto;margin:0 auto;border-radius:14px;border:1px solid rgba(56,189,248,.35);box-shadow:0 18px 40px rgba(8,47,73,.35);transition:max-width .25s ease,box-shadow .25s ease,transform .25s ease,border-color .25s ease}
+.poster-card--expanded .poster-card__image{max-width:min(90vw,900px);box-shadow:0 30px 80px rgba(8,47,73,.45);transform:scale(1.02);border-color:rgba(56,189,248,.6)}
 .poster-card--expanded .poster-card__image-toggle{cursor:zoom-out}
 
 .contact{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
