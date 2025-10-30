@@ -33,9 +33,9 @@ main{display:grid;gap:3.5rem}
 .section--alt{background:var(--card-bg);padding:2.5rem clamp(1.5rem,5vw,6rem);border-radius:28px;box-shadow:0 40px 80px rgba(0,0,0,.45);transition:box-shadow .25s ease}
 .section--alt:hover,.section--alt:focus-within{box-shadow:0 40px 80px rgba(0,0,0,.45),0 0 36px rgba(56,189,248,.28)}
 
-.projects{display:grid;gap:1.25rem}
-.project-tags{list-style:none;display:flex;flex-wrap:wrap;gap:.75rem;padding:0;margin:0}
-.project-tag{padding:.45rem .95rem;border-radius:999px;border:1px solid rgba(56,189,248,.6);background:var(--accent-soft);color:var(--accent);font-weight:600;font-size:.85rem;letter-spacing:.04em;text-transform:uppercase}
+
+.projects,.publications,.posters{display:grid;gap:1.25rem}
+.projects .publication-card__badge{background:var(--accent-soft);color:var(--accent)}
 
 .publications{display:grid;gap:1.25rem}
 .publication-card{position:relative;padding:1.75rem 1.5rem 1.5rem;border-radius:24px;background:var(--card-bg);border:1px solid var(--border);box-shadow:0 25px 60px rgba(0,0,0,.45);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
@@ -56,17 +56,8 @@ main{display:grid;gap:3.5rem}
 .publication-card--expanded .publication-card__icon{background:var(--accent);border-color:transparent}
 .publication-card--expanded .publication-card__icon::after{transform:scaleX(0)}
 
-.posters{display:grid;gap:1.5rem;grid-template-columns:1fr}
-.poster-card{background:var(--card-bg);border:1px solid var(--border);border-radius:24px;padding:1.25rem;box-shadow:0 20px 40px rgba(8,47,73,.3);position:relative;overflow:hidden}
-.poster-card--expanded{overflow:visible;z-index:1}
-.poster-card__info{text-align:center;display:grid;gap:.4rem;margin-bottom:.75rem}
-.poster-card__title{margin:0;font-size:1.15rem;color:#fff}
-.poster-card__meta{margin:0;color:var(--muted);font-size:.95rem}
-.poster-card__image-toggle{display:block;width:100%;background:transparent;border:none;padding:0;margin:0 auto;cursor:zoom-in;color:inherit}
-.poster-card__image-toggle:focus-visible{outline:3px solid var(--accent);outline-offset:6px;border-radius:18px}
-.poster-card__image{display:block;width:100%;max-width:320px;height:auto;margin:0 auto;border-radius:14px;transition:max-width .25s ease,box-shadow .25s ease,transform .25s ease}
-.poster-card--expanded .poster-card__image{max-width:min(90vw,900px);box-shadow:0 30px 80px rgba(8,47,73,.45);transform:scale(1.02)}
-.poster-card--expanded .poster-card__image-toggle{cursor:zoom-out}
+.poster-figure{display:grid;gap:.75rem}
+.poster-figure img{border-radius:18px;width:100%;max-width:640px;box-shadow:0 25px 60px rgba(8,47,73,.4)}
 
 .contact{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
 .contact__field{display:grid;gap:.45rem}
@@ -89,7 +80,7 @@ main{display:grid;gap:3.5rem}
   .hero__metrics{margin-top:2rem}
   .hero__identity{flex-direction:column;align-items:center}
   main{gap:2.5rem;padding:0 1.25rem 3rem}
-  .poster-card img{max-width:100%}
+  .poster-figure img{max-width:100%;height:auto}
   .footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.25rem}
 }
 </style>
@@ -125,15 +116,103 @@ field of clinical psychology, with a special focus on integrating modern technol
     </div>
 
     <div class="projects">
-      <ul class="project-tags">
-        <li class="project-tag">Psymulator</li>
-        <li class="project-tag">PRESENCE</li>
-        <li class="project-tag">VERTEX</li>
-        <li class="project-tag">MoTIVE</li>
-        <li class="project-tag">Google</li>
-        <li class="project-tag">TEDIX</li>
-        <li class="project-tag">YoungFitT</li>
-      </ul>
+      <article class="publication-card">
+        <div class="publication-card__badge">VR</div>
+        <button class="publication-card__header" type="button" aria-expanded="false">
+          <div class="publication-card__text">
+            <h3 class="publication-card__title">Psymulator</h3>
+            <p class="publication-card__meta">Immersive clinical training platform co-designed with Hospital del Mar.</p>
+          </div>
+          <span class="publication-card__icon" aria-hidden="true"></span>
+        </button>
+        <div class="publication-card__content" aria-hidden="true">
+          <p class="publication-card__abstract">Psymulator builds simulated consultations in virtual reality so residents can rehearse complex diagnostic interviews in a safe, measurable setting. I lead the evidence-based scenario design and co-developed the assessment rubric to track metacognitive skills.</p>
+        </div>
+      </article>
+
+      <article class="publication-card">
+        <div class="publication-card__badge">EU</div>
+        <button class="publication-card__header" type="button" aria-expanded="false">
+          <div class="publication-card__text">
+            <h3 class="publication-card__title">PRESENCE</h3>
+            <p class="publication-card__meta">European consortium exploring social VR for people living with psychosis.</p>
+          </div>
+          <span class="publication-card__icon" aria-hidden="true"></span>
+        </button>
+        <div class="publication-card__content" aria-hidden="true">
+          <p class="publication-card__abstract">Within PRESENCE I coordinate qualitative field studies and run co-design workshops with clinicians and service users to ensure the platform supports recovery-oriented goals while respecting privacy and safety requirements.</p>
+        </div>
+      </article>
+
+      <article class="publication-card">
+        <div class="publication-card__badge">Lab</div>
+        <button class="publication-card__header" type="button" aria-expanded="false">
+          <div class="publication-card__text">
+            <h3 class="publication-card__title">VERTEX</h3>
+            <p class="publication-card__meta">Mixed-reality lab investigating embodied cognition for aging populations.</p>
+          </div>
+          <span class="publication-card__icon" aria-hidden="true"></span>
+        </button>
+        <div class="publication-card__content" aria-hidden="true">
+          <p class="publication-card__abstract">At VERTEX I supervise experimental protocols that pair motion capture with VR exposure to study balance, proprioception, and self-efficacy improvements in older adults.</p>
+        </div>
+      </article>
+
+      <article class="publication-card">
+        <div class="publication-card__badge">XR</div>
+        <button class="publication-card__header" type="button" aria-expanded="false">
+          <div class="publication-card__text">
+            <h3 class="publication-card__title">MoTIVE</h3>
+            <p class="publication-card__meta">Motivation-focused VR tools tailored for adolescent mental health services.</p>
+          </div>
+          <span class="publication-card__icon" aria-hidden="true"></span>
+        </button>
+        <div class="publication-card__content" aria-hidden="true">
+          <p class="publication-card__abstract">I collaborated with youth therapists to translate motivational interviewing techniques into interactive VR journeys that help young people rehearse coping strategies before returning to daily life.</p>
+        </div>
+      </article>
+
+      <article class="publication-card">
+        <div class="publication-card__badge">Industry</div>
+        <button class="publication-card__header" type="button" aria-expanded="false">
+          <div class="publication-card__text">
+            <h3 class="publication-card__title">Google Health Research Residency</h3>
+            <p class="publication-card__meta">Applied behavioural science for digital wellbeing features on Android.</p>
+          </div>
+          <span class="publication-card__icon" aria-hidden="true"></span>
+        </button>
+        <div class="publication-card__content" aria-hidden="true">
+          <p class="publication-card__abstract">During my residency I ran large-scale surveys and experience sampling studies to evaluate how adaptive prompts can reduce rumination and improve emotion regulation in everyday device use.</p>
+        </div>
+      </article>
+
+      <article class="publication-card">
+        <div class="publication-card__badge">EdTech</div>
+        <button class="publication-card__header" type="button" aria-expanded="false">
+          <div class="publication-card__text">
+            <h3 class="publication-card__title">TEDIX</h3>
+            <p class="publication-card__meta">Digital literacy curriculum empowering older adults to become creators.</p>
+          </div>
+          <span class="publication-card__icon" aria-hidden="true"></span>
+        </button>
+        <div class="publication-card__content" aria-hidden="true">
+          <p class="publication-card__abstract">I co-authored the pedagogical framework and evaluation plan for TEDIX, tracking how creative production bolsters agency and social connectedness in later life.</p>
+        </div>
+      </article>
+
+      <article class="publication-card">
+        <div class="publication-card__badge">Health</div>
+        <button class="publication-card__header" type="button" aria-expanded="false">
+          <div class="publication-card__text">
+            <h3 class="publication-card__title">YoungFitT</h3>
+            <p class="publication-card__meta">Coaching programme blending physical activity and self-compassion for teens.</p>
+          </div>
+          <span class="publication-card__icon" aria-hidden="true"></span>
+        </button>
+        <div class="publication-card__content" aria-hidden="true">
+          <p class="publication-card__abstract">YoungFitT combines wearable data with reflective journaling to sustain motivation. I led the mixed-methods evaluation demonstrating improvements in perceived competence and peer support.</p>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -262,21 +341,35 @@ field of clinical psychology, with a special focus on integrating modern technol
       <p>Conference posters highlighting my ongoing work in virtual reality and mental health.</p>
     </div>
     <div class="posters">
-      <article class="poster-card">
-        <div class="poster-card__info">
-          <h3 class="poster-card__title">Assessing Co-presence in VR Through EEG Hyperscanning</h3>
-          <p class="poster-card__meta">Presented at ECPA 2025 (Barcelona) and VR Summit 2025 (Bochum)</p>
-        </div>
-        <button class="poster-card__image-toggle" type="button" aria-label="Expand poster preview" aria-expanded="false">
-          <img class="poster-card__image" src="images/Poster_EEG.png" alt="Poster: Assessing Co-presence in VR Through EEG Hyperscanning" />
+      <article class="publication-card">
+        <div class="publication-card__badge">2025</div>
+        <button class="publication-card__header" type="button" aria-expanded="false">
+          <div class="publication-card__text">
+            <h3 class="publication-card__title">Assessing Co-presence in VR Through EEG Hyperscanning</h3>
+            <p class="publication-card__meta">ECPA 2025 (Barcelona) · VR Summit 2025 (Bochum)</p>
+          </div>
+          <span class="publication-card__icon" aria-hidden="true"></span>
         </button>
+        <div class="publication-card__content" aria-hidden="true">
+          <div class="poster-figure">
+            <p class="publication-card__abstract">A bi-lab collaboration measuring synchrony between pairs completing cooperative VR tasks while recording dual EEG streams to quantify co-presence.</p>
+            <img src="images/Poster_EEG.png" alt="Poster: Assessing Co-presence in VR Through EEG Hyperscanning" />
+          </div>
+        </div>
       </article>
 
-      <article class="poster-card">
-        <div class="poster-card__info">
-          <h3 class="poster-card__title">Motivations for blogging in later life: Older adults as Internet content producers</h3>
-          <p class="poster-card__meta">Presented at the British Society of Gerontology 48th Annual Conference, Liverpool, UK.</p>
-          <a class="button button--ghost" href="https://doi.org/10.xxxx/yourposterlink" target="_blank" rel="noopener">Read Abstract</a>
+      <article class="publication-card">
+        <div class="publication-card__badge">2019</div>
+        <button class="publication-card__header" type="button" aria-expanded="false">
+          <div class="publication-card__text">
+            <h3 class="publication-card__title">Motivations for Blogging in Later Life</h3>
+            <p class="publication-card__meta">British Society of Gerontology 48th Annual Conference · Liverpool, UK</p>
+          </div>
+          <span class="publication-card__icon" aria-hidden="true"></span>
+        </button>
+        <div class="publication-card__content" aria-hidden="true">
+          <p class="publication-card__abstract">Poster distilling grounded-theory findings on how creative self-expression online strengthens identity and relationships in older adulthood.</p>
+          <a class="button button--ghost publication-card__cta" href="https://doi.org/10.xxxx/yourposterlink" target="_blank" rel="noopener">Read abstract</a>
         </div>
       </article>
     </div>
@@ -319,28 +412,6 @@ document.querySelectorAll('.publication-card').forEach(card=>{
   });
 });
 
-const posterToggles=document.querySelectorAll('.poster-card__image-toggle');
-posterToggles.forEach(toggle=>{
-  toggle.addEventListener('click',()=>{
-    const card=toggle.closest('.poster-card');
-    if(!card) return;
-    const expanded=card.classList.toggle('poster-card--expanded');
-    toggle.setAttribute('aria-expanded', String(expanded));
-    toggle.setAttribute('aria-label', expanded?'Collapse poster preview':'Expand poster preview');
-  });
-});
-
-document.addEventListener('keydown',event=>{
-  if(event.key!=='Escape') return;
-  const expandedCard=document.querySelector('.poster-card--expanded');
-  if(!expandedCard) return;
-  const toggle=expandedCard.querySelector('.poster-card__image-toggle');
-  expandedCard.classList.remove('poster-card--expanded');
-  if(!toggle) return;
-  toggle.setAttribute('aria-expanded','false');
-  toggle.setAttribute('aria-label','Expand poster preview');
-  toggle.focus();
-});
 </script>
 </body>
 </html>
