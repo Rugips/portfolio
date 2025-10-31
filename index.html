@@ -297,18 +297,22 @@ field of clinical psychology, with a special focus on integrating modern technol
     
     <div class="model-grid">
       <model-viewer src="3d_models/soldadito.glb"
-                    camera-controls
-                    auto-rotate
-                    rotation-per-second="20deg"
-                    camera-orbit="90deg 75deg auto"
-                    field-of-view="20deg">
-      </model-viewer>
+              camera-controls
+              auto-rotate
+              rotation-per-second="20deg"
+              camera-orbit="90deg 75deg auto"
+              field-of-view="20deg"
+              interaction-prompt="auto"
+              interaction-prompt-threshold="10000"
+              auto-rotate-delay="0"
+              interaction-policy="allow-when-focused">
+      </model-viewer>  
       
       <model-viewer src="3d_models/eventlablogo.glb"
               camera-controls
               auto-rotate
               rotation-per-second="20deg"
-              camera-orbit="180deg 10deg auto"
+              camera-orbit="90deg 75deg auto"
               field-of-view="20deg"
               interaction-prompt="auto"
               interaction-prompt-threshold="10000"
