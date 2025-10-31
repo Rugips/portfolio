@@ -295,7 +295,21 @@ field of clinical psychology, with a special focus on integrating modern technol
       <p>Interact with my 3D creations!</p>
     </div>
     
-    <div class="model-grid">
+    <style>
+      .models {
+        display: flex;
+        justify-content: center; /* centra horizontalmente */
+        gap: 20px;               /* espacio entre modelos */
+        flex-wrap: wrap;         /* para que bajen si no caben */
+      }
+
+      model-viewer {
+        width: 300px;
+        height: 300px;
+      }
+    </style>
+    
+    <div class="models">
       <model-viewer src="3d_models/soldadito.glb"
               camera-controls
               auto-rotate
