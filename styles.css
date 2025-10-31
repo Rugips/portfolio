@@ -159,18 +159,21 @@ main { display: grid; gap: 5rem; }
   border-top: 1px solid rgba(255,255,255,.05);
 }
 
-/* === MULTIPLE 3D MODELS SIDE BY SIDE === */
+/* ============================================
+   MULTIPLE 3D MODELS SIDE BY SIDE
+============================================ */
+
 .model-grid {
-  display: flex;
-  justify-content: center;    /* Centers them horizontally */
-  align-items: flex-start;    /* Aligns them at the top */
-  flex-wrap: wrap;            /* Moves them to the next row if screen is narrow */
-  gap: 2rem;                  /* Space between them */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 👈 3 per row on desktop */
+  justify-items: center;
+  gap: 2rem;
   margin-top: 1.5rem;
 }
 
 .model-grid model-viewer {
-  width: 320px;               /* Size of each model frame */
+  width: 100%;
+  max-width: 320px;
   height: 320px;
   background: radial-gradient(circle at center, var(--bg-alt), var(--bg));
   border: 1px solid var(--accent);
@@ -181,6 +184,19 @@ main { display: grid; gap: 5rem; }
 
 .model-grid model-viewer:hover {
   box-shadow: 0 0 55px rgba(56,189,248,0.35);
+}
+
+/* 🧩 Responsive layout */
+@media (max-width: 900px) {
+  .model-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .model-grid {
+    grid-template-columns: repeat(2, 1fr); /* 👈 still 2 per row on mobile */
+  }
 }
 
 /* ============================================
