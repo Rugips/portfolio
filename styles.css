@@ -78,7 +78,7 @@ a:hover, a:focus { color: var(--accent); }
    HERO CONTENT
 ============================================ */
 .hero__content { max-width: 960px; display: grid; gap: 2rem; }
-.hero__identity { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem; }
+.hero__identity { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem; overflow: visible; }
 .hero__left { display: flex; flex-direction: column; justify-content: center; gap: 1.25rem; flex: 1; }
 
 .hero__photo {
