@@ -224,3 +224,26 @@ main { display: grid; gap: 5rem; }
   color: #38bdf8; !important;
 }
 
+.hindex-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  background-color: #38bdf8;
+  color: #0f172a;          /* dark text for contrast */
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 0 20px rgba(56,189,248,0.4);
+}
+
+/* Ensure the parent section allows absolute positioning */
+#publications {
+  position: relative;
+}
+
+
