@@ -93,8 +93,8 @@ a:hover, a:focus { color: var(--accent); }
 .hero__name {
   margin: 0;
   font-size: clamp(3rem,10vw,5rem);
-  line-height: 1;
-  font-weight: 700;
+  line-height: 1.2;
+  font-weight: 600;
   letter-spacing: -.02em;
   color: #f5f5f5;
 }
