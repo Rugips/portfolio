@@ -43,7 +43,7 @@ a:hover, a:focus { color: var(--accent); }
    HERO & NAV
 ============================================ */
 .hero {
-  min-height: 20vh;
+  min-height: 25vh;
   padding: 3rem clamp(1.5rem,5vw,6rem) 2rem;
   background: transparent;
   display: flex;
@@ -92,7 +92,7 @@ a:hover, a:focus { color: var(--accent); }
 
 .hero__name {
   margin: 0;
-  font-size: clamp(3rem,10vw,5rem);
+  font-size: clamp(4rem,12vw,5rem);
   line-height: 1.5;
   font-weight: 600;
   letter-spacing: -.02em;
