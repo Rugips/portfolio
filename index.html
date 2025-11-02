@@ -34,20 +34,8 @@ main{display:grid;gap:3.5rem}
 .section--alt:hover,.section--alt:focus-within{box-shadow:0 40px 80px rgba(0,0,0,.45),0 0 36px rgba(56,189,248,.28)}
 
 .projects{display:grid;gap:1.25rem}
-.project-card{background:var(--card-bg);border:1px solid var(--border);border-radius:24px;padding:1.25rem 1.5rem;box-shadow:0 25px 55px rgba(0,0,0,.45);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
-.project-card:hover,.project-card:focus-within{transform:translateY(-4px);border-color:rgba(56,189,248,.55);box-shadow:0 30px 70px rgba(8,47,73,.45)}
-.project-card__header{width:100%;background:transparent;border:none;color:inherit;padding:0;display:flex;align-items:center;justify-content:space-between;gap:1rem;cursor:pointer;text-align:left}
-.project-card__title{margin:0;font-size:1.05rem;font-weight:600}
-.project-card__meta{margin:0;color:var(--muted);font-size:.92rem}
-.project-card__icon{flex-shrink:0;width:1.5rem;height:1.5rem;border-radius:999px;border:1px solid rgba(56,189,248,.65);display:inline-flex;align-items:center;justify-content:center;position:relative}
-.project-card__icon::before,.project-card__icon::after{content:'';position:absolute;width:.7rem;height:2px;background:var(--accent);transition:transform .2s ease}
-.project-card__icon::after{transform:rotate(90deg)}
-.project-card__content{display:grid;gap:.75rem;margin-top:0;max-height:0;overflow:hidden;opacity:0;visibility:hidden;pointer-events:none;transition:max-height .4s ease,opacity .25s ease,margin-top .25s ease}
-.project-card__description{margin:0;color:#cbd5f5;font-size:.95rem}
-.project-card--expanded{border-color:rgba(56,189,248,.65);box-shadow:0 35px 85px rgba(8,47,73,.5)}
-.project-card--expanded .project-card__content{max-height:360px;opacity:1;visibility:visible;margin-top:1rem;pointer-events:auto}
-.project-card--expanded .project-card__icon{background:var(--accent);border-color:transparent}
-.project-card--expanded .project-card__icon::after{transform:scaleX(0)}
+.project-tags{list-style:none;display:flex;flex-wrap:wrap;gap:.75rem;padding:0;margin:0}
+.project-tag{padding:.45rem .95rem;border-radius:999px;border:1px solid rgba(56,189,248,.6);background:var(--accent-soft);color:var(--accent);font-weight:600;font-size:.85rem;letter-spacing:.04em;text-transform:uppercase}
 
 .publications{display:grid;gap:1.25rem}
 .publication-card{position:relative;padding:1.75rem 1.5rem 1.5rem;border-radius:24px;background:var(--card-bg);border:1px solid var(--border);box-shadow:0 25px 60px rgba(0,0,0,.45);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
@@ -140,109 +128,16 @@ main{display:grid;gap:3.5rem}
     </div>
 
     <div class="projects">
-      <article class="project-card">
-        <button class="project-card__header" type="button" aria-expanded="false">
-          <div>
-            <h3 class="project-card__title">Psymulator</h3>
-            <p class="project-card__meta">Virtual training platform for clinical decision-making</p>
-          </div>
-          <span class="project-card__icon" aria-hidden="true"></span>
-        </button>
-        <div class="project-card__content" aria-hidden="true">
-          <p class="project-card__description">This simulation toolkit lets therapists rehearse complex mental health interventions in safe, repeatable scenarios.</p>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <button class="project-card__header" type="button" aria-expanded="false">
-          <div>
-            <h3 class="project-card__title">PRESENCE</h3>
-            <p class="project-card__meta">Collaborative research on social presence in VR</p>
-          </div>
-          <span class="project-card__icon" aria-hidden="true"></span>
-        </button>
-        <div class="project-card__content" aria-hidden="true">
-          <p class="project-card__description">A networked experiment suite helps researchers capture how proximity and shared tasks shape perceived presence.</p>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <button class="project-card__header" type="button" aria-expanded="false">
-          <div>
-            <h3 class="project-card__title">VERTEX</h3>
-            <p class="project-card__meta">Immersive analytics for neuroscience labs</p>
-          </div>
-          <span class="project-card__icon" aria-hidden="true"></span>
-        </button>
-        <div class="project-card__content" aria-hidden="true">
-          <p class="project-card__description">Scientists explore brain connectivity maps in a room-scale VR environment with collaborative annotation tools.</p>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <button class="project-card__header" type="button" aria-expanded="false">
-          <div>
-            <h3 class="project-card__title">MoTIVE</h3>
-            <p class="project-card__meta">Motivational interviewing with embodied agents</p>
-          </div>
-          <span class="project-card__icon" aria-hidden="true"></span>
-        </button>
-        <div class="project-card__content" aria-hidden="true">
-          <p class="project-card__description">Therapists practice conversational strategies with adaptive avatars that mirror realistic patient responses.</p>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <button class="project-card__header" type="button" aria-expanded="false">
-          <div>
-            <h3 class="project-card__title">Google</h3>
-            <p class="project-card__meta">UX research residency on wellbeing technologies</p>
-          </div>
-          <span class="project-card__icon" aria-hidden="true"></span>
-        </button>
-        <div class="project-card__content" aria-hidden="true">
-          <p class="project-card__description">A cross-functional sprint explored how ambient prompts can gently steer daily habits toward healthier routines.</p>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <button class="project-card__header" type="button" aria-expanded="false">
-          <div>
-            <h3 class="project-card__title">TEDIX</h3>
-            <p class="project-card__meta">Interactive storytelling for immersive talks</p>
-          </div>
-          <span class="project-card__icon" aria-hidden="true"></span>
-        </button>
-        <div class="project-card__content" aria-hidden="true">
-          <p class="project-card__description">Speakers control lighting, audio, and visuals from a wearable cue system to heighten audience engagement.</p>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <button class="project-card__header" type="button" aria-expanded="false">
-          <div>
-            <h3 class="project-card__title">YoungFitT</h3>
-            <p class="project-card__meta">VR-based coaching for adolescent wellness</p>
-          </div>
-          <span class="project-card__icon" aria-hidden="true"></span>
-        </button>
-        <div class="project-card__content" aria-hidden="true">
-          <p class="project-card__description">Teens follow immersive exercise quests that blend mindfulness cues with playful movement challenges.</p>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <button class="project-card__header" type="button" aria-expanded="false">
-          <div>
-            <h3 class="project-card__title">ALCO-VR</h3>
-            <p class="project-card__meta">Cue-exposure therapy for alcohol use disorder</p>
-          </div>
-          <span class="project-card__icon" aria-hidden="true"></span>
-        </button>
-        <div class="project-card__content" aria-hidden="true">
-          <p class="project-card__description">Clinicians guide patients through craving management drills inside realistic bar and party scenarios.</p>
-        </div>
-      </article>
+      <ul class="project-tags">
+        <li class="project-tag">Psymulator</li>
+        <li class="project-tag">PRESENCE</li>
+        <li class="project-tag">VERTEX</li>
+        <li class="project-tag">MoTIVE</li>
+        <li class="project-tag">Google</li>
+        <li class="project-tag">TEDIX</li>
+        <li class="project-tag">YoungFitT</li>
+        <li class="project-tag">ALCO-VR</li>
+      </ul>
     </div>
   </section>
 
@@ -464,18 +359,6 @@ main{display:grid;gap:3.5rem}
 
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
-document.querySelectorAll('.project-card').forEach(card=>{
-  const header=card.querySelector('.project-card__header');
-  const content=card.querySelector('.project-card__content');
-  if(!header||!content) return;
-  header.addEventListener('click',()=>{
-    const expanded=header.getAttribute('aria-expanded')==='true';
-    header.setAttribute('aria-expanded', String(!expanded));
-    content.setAttribute('aria-hidden', String(expanded));
-    card.classList.toggle('project-card--expanded', !expanded);
-  });
-});
-
 document.querySelectorAll('.publication-card').forEach(card=>{
   const header=card.querySelector('.publication-card__header');
   const content=card.querySelector('.publication-card__content');
