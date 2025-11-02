@@ -221,7 +221,7 @@ main { display: grid; gap: 5rem; }
    CUSTOM ACCENT TEXT (e.g., “Virtual Counterclockwise”)
 ============================================ */
 .accent {
-  color: #38bdf8; !important;
+  color: #38bdf8 !important;
 }
 
 .hindex-badge {
